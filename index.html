@@ -1,553 +1,672 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>James Corr | GTM Leader &amp; Builder</title>
-  <meta name="description" content="James Corr builds revenue programs and the systems that run them: a GTM and partnerships leader who ships production software against the Claude API. Open to partnerships, GTM engineering, and product roles." />
-  <!-- TODO: confirm final Vercel subdomain before deploy and update canonical + OG/Twitter urls below -->
-  <link rel="canonical" href="https://james.corr.vercel.app/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="James Corr | GTM Leader &amp; Builder" />
-  <meta property="og:description" content="James Corr builds revenue programs and the systems that run them: a GTM and partnerships leader who ships production software against the Claude API." />
-  <meta property="og:url" content="https://james.corr.vercel.app/" />
-  <meta property="og:image" content="https://james.corr.vercel.app/assets/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="James Corr | GTM Leader &amp; Builder" />
-  <meta name="twitter:description" content="James Corr builds revenue programs and the systems that run them: a GTM and partnerships leader who ships production software against the Claude API." />
-  <meta name="twitter:image" content="https://james.corr.vercel.app/assets/og-image.png" />
-  <meta name="theme-color" content="#0D0D0F" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Corr | Monograph (comp v2)</title>
+<style>
+/*
+DIRECTION CONTRACT
+THESIS: An exhibition catalogue, not a resume site. One idea owns one viewport,
+colour is the architecture, and every claim arrives at the scale it deserves.
+Refuses the card grid, the tile of metrics, and the cream-and-serif default.
+OWN-WORLD: Drenched full-bleed fields of ultramarine, chrome yellow and ink,
+chalk as the only light, flare reserved for live status and attention. Bricolage
+Grotesque set enormous and tight against a quiet serif text face. Rules and hard
+borders carry structure; no shadows, no gradients, no rounded chrome.
+STORY: The visitor learns he is available in the first viewport, feels the scale
+of the numbers, sees the software actually running, and leaves through a contact
+panel the size of a wall.
+FIRST VIEWPORT: Full-bleed ultramarine; availability marker top-left; headline
+set to the edges in chalk and yellow; sub-copy low-left beside two actions.
+FORM: Art-book monograph / exhibition catalogue, with the drafting sheet's
+dimension callouts and specification tables absorbed into it.
+*/
+
+@font-face{font-family:Bricolage;src:url(fonts/bricolage-800.woff2)format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:Bricolage;src:url(fonts/bricolage-600.woff2)format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:Faustina;src:url(fonts/faustina-400.woff2)format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Faustina;src:url(fonts/faustina-600.woff2)format('woff2');font-weight:600;font-display:swap}
+
+:root{
+  --ultra:#1E2BD6;
+  --yellow:#FFCE00;
+  --ink:#111015;
+  --chalk:#F3F0E7;
+  --flare:#FF4B1F;
+  --pad:clamp(1.25rem,5vw,5rem);
+  --rail:58px;
+  --max:1500px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--chalk);
+  font-family:Faustina,Georgia,serif;font-size:17px;line-height:1.62;
+}
+h1,h2,h3,.d{font-family:Bricolage,system-ui,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.9}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--flare);outline-offset:4px}
+.skip{position:absolute;left:-9999px;background:var(--chalk);color:var(--ink);padding:.6rem 1rem;z-index:99}
+.skip:focus{left:.6rem;top:.6rem}
+
+.panel{padding:clamp(3.5rem,9vw,8rem) var(--pad);position:relative}
+.panel > .in{max-width:var(--max);margin:0 auto}
+.p-ultra{background:var(--ultra);color:var(--chalk);--pbg:var(--ultra);--acc:var(--yellow)}
+.p-yellow{background:var(--yellow);color:var(--ink);--pbg:var(--yellow);--acc:var(--ultra)}
+.p-ink{background:var(--ink);color:var(--chalk);--pbg:var(--ink);--acc:var(--yellow)}
+.p-chalk{background:var(--chalk);color:var(--ink);--pbg:var(--chalk);--acc:var(--ultra)}
+
+/* ---------- hero ---------- */
+.hero{min-height:calc(100svh - var(--rail));display:flex;flex-direction:column;justify-content:space-between;
+  padding-top:clamp(1.8rem,4vw,3rem);padding-bottom:clamp(1.6rem,3vw,2.4rem)}
+@media(max-width:760px){.hero{min-height:0;justify-content:flex-start;padding-bottom:clamp(3.5rem,12vw,5rem)}}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:1rem 1.5rem;flex-wrap:wrap;
+  font-family:Bricolage,sans-serif;font-weight:600;letter-spacing:.02em;font-size:.86rem;text-transform:uppercase}
+
+/* availability marker */
+.avail{display:inline-flex;align-items:center;gap:.6rem;background:var(--flare);color:var(--chalk);
+  padding:.42rem .8rem .42rem .7rem;font-weight:800;letter-spacing:.01em;text-transform:none;font-size:.92rem}
+.avail .dot{width:9px;height:9px;background:var(--chalk);border-radius:50%;flex:none;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.hero h1{margin:clamp(1.2rem,3.4vw,2.2rem) 0 0;font-size:clamp(2.8rem,8.5vw,8.4rem);text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero .bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem clamp(2.5rem,5vw,4.5rem);
+  align-items:end;margin-top:clamp(1.8rem,5vw,3.4rem)}
+.hero .bottom p{margin:0;font-size:clamp(1.02rem,1.35vw,1.22rem);line-height:1.55}
+.acts{display:flex;flex-wrap:wrap;gap:.75rem;justify-self:end}
+@media(max-width:760px){.hero .bottom{grid-template-columns:1fr;align-items:start}.acts{justify-self:start}}
+.cta{display:inline-flex;align-items:center;text-decoration:none;background:var(--yellow);color:var(--ink);
+  padding:1rem 1.6rem;font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.15rem;
+  white-space:nowrap;border:3px solid var(--yellow)}
+.cta:hover{background:var(--chalk);border-color:var(--chalk)}
+.cta.sec{background:transparent;color:var(--chalk);border-color:var(--chalk)}
+.cta.sec:hover{background:var(--chalk);color:var(--ink)}
+
+/* availability strip under the hero fold */
+.openline{margin-top:clamp(1.2rem,2.6vw,1.8rem);padding-top:1rem;border-top:3px solid var(--yellow);
+  font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.02em;
+  font-size:clamp(1.05rem,2.1vw,1.6rem);color:var(--yellow)}
+
+/* ---------- statement panels ---------- */
+.stmt{font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.04em;line-height:.95;
+  font-size:clamp(1.85rem,4.6vw,4.4rem);margin:0;max-width:22ch;text-wrap:balance}
+.stmt .n{font-size:1.72em;line-height:.78;display:inline-block;vertical-align:-.06em}
+.stmt .n.y{color:var(--yellow)}
+.stmt .n.u{color:var(--ultra)}
+.stmt .n.f{color:var(--flare)}
+.stmts{display:grid;gap:clamp(2.6rem,6vw,5rem)}
+.stmts .row.r{justify-items:end;text-align:right}
+.stmts .row.r .stmt{text-align:right;margin-left:auto}
+
+.eyebrowless{margin:0 0 clamp(2.3rem,4vw,2.9rem);font-family:Bricolage,sans-serif;font-weight:800;
+  letter-spacing:-.035em;font-size:clamp(1.6rem,3.4vw,2.9rem);line-height:.95}
+
+/* ---------- bio ---------- */
+.bio{columns:2;column-gap:clamp(2rem,5vw,4.5rem);max-width:104ch}
+@media(max-width:860px){.bio{columns:1}}
+.bio p{margin:0 0 1.35rem;break-inside:avoid;font-size:clamp(1.05rem,1.3vw,1.19rem);line-height:1.6}
+.bio p:first-child::first-letter{font-family:Bricolage,sans-serif;font-weight:800;float:left;
+  font-size:4.15em;line-height:.76;padding:.06em .1em 0 0;color:var(--ultra)}
+
+/* ---------- career bus ---------- */
+.bus{position:relative}
+.bus::before{content:"";position:absolute;left:8px;top:10px;bottom:1.5rem;width:3px;background:currentColor;opacity:.28}
+@media(max-width:800px){.bus::before{display:none}}
+.role{position:relative;padding:0 0 clamp(2.4rem,5vw,3.6rem) 52px;
+  display:grid;grid-template-columns:minmax(0,1fr) 268px;
+  column-gap:clamp(2rem,4vw,3.6rem);row-gap:1.15rem;align-items:start}
+.role:last-child{padding-bottom:0}
+@media(max-width:800px){.role{padding-left:0;padding-top:1.8rem;border-top:3px solid currentColor}
+  .role:first-child{border-top:0;padding-top:0}}
+.role::before{content:"";position:absolute;left:0;top:9px;width:19px;height:19px;background:currentColor}
+@media(max-width:800px){.role::before{display:none}}
+.role.live::before{background:var(--flare)}
+.rhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem}
+.rhead h3{margin:0;font-size:clamp(1.5rem,3.1vw,2.5rem)}
+.rhead .meta{font-family:Bricolage,sans-serif;font-weight:600;font-size:.86rem;letter-spacing:.02em;
+  text-transform:uppercase;opacity:.7}
+.rhead .now{font-family:Bricolage,sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.06em;
+  text-transform:uppercase;background:var(--flare);color:var(--chalk);padding:.2rem .5rem}
+.rhead{grid-column:1;grid-row:1;align-self:baseline}
+.rdate{grid-column:2;grid-row:1;align-self:baseline;
+  margin:0;padding-bottom:.5rem;border-bottom:3px solid var(--acc);
+  font-family:Bricolage,sans-serif;font-weight:800;font-size:.98rem;letter-spacing:.05em;
+  text-transform:uppercase;font-variant-numeric:tabular-nums}
+.role ul{grid-column:1;grid-row:2}
+.dims{grid-column:2;grid-row:2}
+@media(max-width:980px){
+  .role{display:flex;flex-direction:column;gap:1.35rem}
+  .rhead{order:1}.rdate{order:2}.dims{order:3}.role ul{order:4}
+}
+.role ul{margin:0;padding:0;list-style:none;max-width:62ch}
+.role li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;font-size:1.02rem;line-height:1.55}
+.role li:last-child{margin-bottom:0}
+.role li::before{content:"";position:absolute;left:0;top:.66em;width:11px;height:3px;background:var(--acc)}
+.role li b{font-weight:600}
+
+/* dimension callout block */
+.dims{border:3px solid currentColor}
+.dim{padding:.85rem 1rem;border-bottom:1px solid currentColor}
+.dim:last-child{border-bottom:0}
+@media(max-width:980px){
+  .dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .dim{border-bottom:0;border-right:1px solid currentColor}
+  .dim:last-child{border-right:0}
+}
+@media(max-width:560px){.dims{grid-template-columns:1fr 1fr}
+  .dim{border-bottom:1px solid currentColor}
+  .dim:nth-child(2n){border-right:0}}
+.dim .v{display:block;font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.92;
+  font-size:clamp(1.6rem,2.5vw,2.15rem);color:var(--acc)}
+.dim .l{display:block;margin-top:.3rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.09em;text-transform:uppercase;opacity:.72;line-height:1.4}
+
+/* ---------- systems ---------- */
+.wpanel{padding:clamp(3rem,7vw,6rem) var(--pad);overflow:hidden}
+.wpanel .in{max-width:var(--max);margin:0 auto}
+.wtop{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.5fr);gap:1.6rem clamp(2rem,4vw,4rem);
+  align-items:start}
+@media(max-width:900px){.wtop{grid-template-columns:1fr}}
+.wpanel h3{margin:0;font-size:clamp(2.4rem,6vw,5.2rem)}
+.wtag{margin:.7rem 0 0;font-family:Bricolage,sans-serif;font-weight:600;font-size:.9rem;
+  letter-spacing:.03em;text-transform:uppercase;opacity:.75}
+.wlink{display:inline-block;margin-top:1.1rem;font-family:Bricolage,sans-serif;font-weight:800;
+  font-size:1.05rem;letter-spacing:-.02em;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:2px}
+.wlink:hover{color:var(--acc)}
+
+/* spec table */
+.spec{border:3px solid currentColor;display:grid;grid-template-columns:118px minmax(0,1fr)}
+.spec dt{padding:.8rem .95rem;border-bottom:1px solid currentColor;border-right:1px solid currentColor;
+  font-family:Bricolage,sans-serif;font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  opacity:.75}
+.spec dd{margin:0;padding:.8rem 1.05rem;border-bottom:1px solid currentColor;font-size:1rem;line-height:1.5}
+.spec dd b{font-weight:600}
+.spec .last{border-bottom:0}
+.spec .stackdt{background:var(--acc);color:var(--pbg);opacity:1;border-right-color:var(--acc)}
+.spec .stackdd{font-family:Bricolage,sans-serif;font-weight:600;font-size:.92rem;letter-spacing:-.005em}
+@media(max-width:620px){
+  .spec{grid-template-columns:1fr}
+  .spec dt{border-right:0;border-bottom:0;padding-bottom:.1rem}
+  .spec dd{padding-top:.25rem}
+  .spec .stackdt{padding-bottom:.8rem}
+}
+
+/* screenshot slab */
+.shot{margin-top:clamp(2.2rem,5vw,3.6rem);position:relative}
+.shot .plate{position:relative;border:3px solid currentColor;background:var(--acc);padding:clamp(.7rem,1.6vw,1.4rem)}
+.shot.bleed-r .plate{margin-right:calc(var(--pad) * -1)}
+.shot.bleed-l .plate{margin-left:calc(var(--pad) * -1)}
+@media(max-width:700px){.shot .plate{margin:0!important}}
+.shot img{display:block;width:100%;height:auto;border:2px solid var(--ink)}
+.shot figcaption{margin-top:.7rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.76rem;
+  letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+/* supply-later placeholder */
+.ph{aspect-ratio:24/7;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  border:2px dashed var(--pbg);color:var(--pbg);text-align:center;padding:1.5rem;
+  background:repeating-linear-gradient(45deg,transparent 0 13px,rgba(0,0,0,.10) 13px 26px)}
+.ph strong{font-family:Bricolage,sans-serif;font-weight:800;font-size:clamp(.95rem,1.7vw,1.25rem);
+  letter-spacing:-.01em;line-height:1.2}
+.ph span{font-family:Bricolage,sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+
+/* ---------- close ---------- */
+.close{padding-bottom:clamp(2.5rem,5vw,4rem)}
+.close .mail{display:block;font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.045em;
+  font-size:clamp(1.85rem,7.1vw,6.4rem);line-height:.92;text-decoration:none;word-break:break-word}
+.close .mail:hover{color:var(--yellow)}
+.close .links{margin:clamp(1.8rem,4vw,3rem) 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.7rem 2rem;
+  font-family:Bricolage,sans-serif;font-weight:600;font-size:1.02rem}
+.close .links a{text-decoration:none;border-bottom:2px solid var(--flare)}
+
+/* title block */
+.tb{margin-top:clamp(2.6rem,6vw,4.4rem);border-top:3px solid currentColor;
+  display:grid;grid-template-columns:1.5fr 1fr 1fr}
+@media(max-width:860px){.tb{grid-template-columns:1fr}}
+.tb .cell{padding:1.5rem clamp(1.2rem,2.4vw,2rem) 1.5rem 0;border-right:1px solid currentColor}
+.tb .cell + .cell{padding-left:clamp(1.2rem,2.4vw,2rem)}
+.tb .cell:last-child{border-right:0;padding-right:0}
+@media(max-width:860px){.tb .cell{border-right:0;border-bottom:1px solid currentColor;padding:1.3rem 0}
+  .tb .cell + .cell{padding-left:0}.tb .cell:last-child{border-bottom:0}}
+.tb h3{margin:0 0 .6rem;font-family:Bricolage,sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.7}
+.tb ul{margin:0;padding:0;list-style:none;font-size:.99rem;line-height:1.5}
+.tb li{margin-bottom:.35rem}
+.tb .mailsm{font-family:Bricolage,sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+  text-decoration:none;border-bottom:2px solid var(--flare);word-break:break-word}
+.tbfoot{border-top:1px solid currentColor;padding-top:1.1rem;margin-top:1.4rem;display:flex;flex-wrap:wrap;
+  gap:.5rem 2rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.92rem}
+.tbfoot .y{color:var(--yellow)}
+
+/* ---------- persistent rail ---------- */
+.rail{
+  position:fixed;left:0;right:0;bottom:0;height:var(--rail);z-index:40;
+  background:var(--chalk);color:var(--ink);display:flex;align-items:center;
+  font-family:Bricolage,sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.01em;
+  border-top:4px solid var(--flare);
+  transform:translateY(110%);transition:transform .62s cubic-bezier(.16,1,.3,1);
+}
+.rail.on{transform:translateY(0)}
+.rail .seg{padding:0 clamp(.7rem,1.6vw,1.3rem);white-space:nowrap;display:flex;align-items:center;height:100%}
+.rail .seg.b{font-weight:800;letter-spacing:-.02em;font-size:.95rem}
+.rail .seg.dim{opacity:.62}
+.rail .seg.open{color:var(--flare);font-weight:800;display:flex;align-items:center;gap:.5rem}
+.rail .seg.open i{width:8px;height:8px;background:var(--flare);border-radius:50%;flex:none}
+.rail .go{margin-left:auto;background:var(--ultra);color:var(--chalk);text-decoration:none;font-weight:800;
+  padding:0 clamp(1rem,2.4vw,1.9rem);letter-spacing:-.02em;font-size:.95rem;display:flex;align-items:center;height:100%}
+.rail .go:hover{background:var(--flare)}
+@media(max-width:860px){.rail .seg.hide{display:none}}
+body{padding-bottom:var(--rail)}
+
+/* ---------- intro: name card that tears open ---------- */
+.intro{display:none;position:fixed;inset:0;z-index:90;overflow:hidden}
+.intro.go{display:block}
+.card{position:absolute;inset:0}
+.ch{position:absolute;left:0;right:0;height:50.2%;overflow:hidden;background:var(--chalk)}
+.ch.top{top:0}
+.ch.bot{bottom:0}
+.ch span{position:absolute;left:50%;white-space:nowrap;font-family:Bricolage,sans-serif;font-weight:800;
+  letter-spacing:-.045em;color:var(--ultra);font-size:clamp(2.1rem,10.5vw,9.5rem);line-height:1;
+  clip-path:inset(0 100% 0 0)}
+.ch.top span{bottom:0;transform:translate(-50%,50%)}
+.ch.bot span{top:0;transform:translate(-50%,-50%)}
+@keyframes wipeIn{to{clip-path:inset(0 0 0 0)}}
+@keyframes seamDraw{to{transform:scaleX(1)}}
+@keyframes tearUp{to{transform:translateY(-100%)}}
+@keyframes tearDown{to{transform:translateY(100%)}}
+.go .ch span{animation:wipeIn .72s cubic-bezier(.16,1,.3,1) .18s both}
+.seam{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;background:var(--yellow);
+  transform:scaleX(0);transform-origin:left center}
+.go .ch.top{animation:tearUp .74s cubic-bezier(.7,0,.25,1) 1.92s both}
+.go .ch.bot{animation:tearDown .74s cubic-bezier(.7,0,.25,1) 1.92s both}
+.go .seam{animation:seamDraw .46s cubic-bezier(.16,1,.3,1) 1.36s both,
+  tearDown .74s cubic-bezier(.7,0,.25,1) 1.92s both}
+
+@media(prefers-reduced-motion:reduce){
+  .intro{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rail{transform:none}
+}
+</style>
 </head>
 <body>
-<!--
-THESIS: A career read as a rail concourse departure board. It refuses the dark-mode developer
-portfolio: no metric-card grid, no scroll-reveal counters, no terminal boot overlay.
-OWN-WORLD: Matte flap black with a real seam through every character cell, brushed steel frames
-and rivets, paint-white condensed caps in fixed cells, amber reserved for live status, red for
-nothing that is not stopped. Rows are the only container.
-STORY: A hiring manager sees one person running two boards at once, revenue departing and
-software arriving, then emails him.
-FIRST VIEWPORT: A steel-framed board. Left, the name and thesis flipping into place at monumental
-scale, sub-copy and an amber CONTACT action beneath. Right, the live board: five career rows with
-times, destinations and status. A status strip rules the base, OPEN TO NEW ROLES at its right.
-FORM: Split-flap concourse, dealt as a challenger on seed key a9d5223a and chosen by the user over
-the assigned grounded direction.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
--->
+<a class="skip" href="#main">Skip to content</a>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="card">
+    <div class="ch top"><span>James Corr</span></div>
+    <div class="ch bot"><span>James Corr</span></div>
+    <i class="seam"></i>
+  </div>
+</div>
 
-  <header class="concourse-header">
-    <a class="wordmark" href="#top" aria-label="James Corr, back to top">
-      <span class="wordmark-cell">J</span><span class="wordmark-cell">A</span><span class="wordmark-cell">M</span><span class="wordmark-cell">E</span><span class="wordmark-cell">S</span><span class="wordmark-gap"></span><span class="wordmark-cell">C</span><span class="wordmark-cell">O</span><span class="wordmark-cell">R</span><span class="wordmark-cell">R</span>
-    </a>
+<main id="main">
 
-    <nav class="concourse-nav" aria-label="Primary">
-      <ul>
-        <li><a href="#departures"><span class="nav-word">Departures</span><span class="nav-gloss">Career</span></a></li>
-        <li><a href="#arrivals"><span class="nav-word">Arrivals</span><span class="nav-gloss">Shipped</span></a></li>
-        <li><a href="#service"><span class="nav-word">Service Info</span><span class="nav-gloss">About</span></a></li>
-      </ul>
-    </nav>
-
-    <a class="btn-amber header-cta" href="#contact">
-      Contact
-      <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-    </a>
-  </header>
-
-  <main id="main">
-
-    <section class="hero" id="top">
-      <div class="board-frame hero-board">
-        <div class="hero-grid">
-
-          <div class="hero-headline-col">
-            <h1 class="flap-headline">
-              <span class="flap-line" data-flap="JAMES CORR"></span>
-              <span class="flap-line flap-line-sub" data-flap="REVENUE PROGRAMS"></span>
-              <span class="flap-line flap-line-sub" data-flap="AND THE SYSTEMS"></span>
-              <span class="flap-line flap-line-sub" data-flap="THAT RUN THEM."></span>
-            </h1>
-
-            <p class="hero-copy">
-              Twelve years building revenue programs in B2B SaaS, consulting, and analytics. I ran
-              partnerships at Freshpaint from zero to a 50+ partner ecosystem, then started building
-              the production software that function needed.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn-amber btn-lg" href="mailto:James.corr1990@gmail.com">
-                Get in touch
-                <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-              </a>
-              <p class="hero-loc">Wilmington, DE. Remote.</p>
-            </div>
-          </div>
-
-          <div class="hero-board-col">
-            <div class="hero-boards">
-
-              <div>
-                <p class="mini-board-label"><b>Departures</b><span>Career</span></p>
-                <table class="board-table board-table-hero">
-                  <caption class="visually-hidden">Career history, most recent first</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col" class="col-time">Since</th>
-                      <th scope="col" class="col-dest">Role</th>
-                      <th scope="col" class="col-status">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="col-time">2024</td>
-                      <td class="col-dest">Head of Partnerships</td>
-                      <td class="col-status"><span class="status status-live">In service</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-time">2023</td>
-                      <td class="col-dest">Account Manager</td>
-                      <td class="col-status"><span class="status">Completed</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-time">2022</td>
-                      <td class="col-dest">Associate Director</td>
-                      <td class="col-status"><span class="status">Completed</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-time">2017</td>
-                      <td class="col-dest">Analytics Team Lead</td>
-                      <td class="col-status"><span class="status">Completed</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-time">2014</td>
-                      <td class="col-dest">Analytics Associate</td>
-                      <td class="col-status"><span class="status">Completed</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div>
-                <p class="mini-board-label"><b>Arrivals</b><span>Shipped</span></p>
-                <table class="board-table board-table-hero">
-                  <caption class="visually-hidden">Products shipped, with status</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col" class="col-ref">Ref</th>
-                      <th scope="col" class="col-dest">Product</th>
-                      <th scope="col" class="col-status">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="col-ref">OUT 01</td>
-                      <td class="col-dest">Output</td>
-                      <td class="col-status"><span class="status status-live">Live</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-ref">PGM 02</td>
-                      <td class="col-dest">Postgame</td>
-                      <td class="col-status"><span class="status status-build">In build</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-ref">CLT 03</td>
-                      <td class="col-dest">ClienTell</td>
-                      <td class="col-status"><span class="status status-live">Live</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-ref">DBA 04</td>
-                      <td class="col-dest">Daily Brief Agent</td>
-                      <td class="col-status"><span class="status status-live">In daily use</span></td>
-                    </tr>
-                    <tr>
-                      <td class="col-ref">FQT 05</td>
-                      <td class="col-dest">Focus Quest</td>
-                      <td class="col-status"><span class="status status-live">Live</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-          </div>
-
+  <!-- HERO -->
+  <section class="panel p-ultra hero">
+    <div class="in" style="width:100%">
+      <div class="top">
+        <span class="avail"><i class="dot"></i>Actively interviewing</span>
+        <span>Wilmington, DE. Remote.</span>
+      </div>
+      <h1>Revenue programs and the systems <em>that run them.</em></h1>
+      <div class="bottom">
+        <p>Twelve years building revenue programs in B2B SaaS, consulting, and analytics. I ran partnerships at Freshpaint from zero to a 50+ partner ecosystem, then started building the production software that function needed.</p>
+        <div class="acts">
+          <a class="cta" href="mailto:James.corr1990@gmail.com">Get in touch</a>
+          <a class="cta sec" href="https://www.linkedin.com/in/jamescorr1/">LinkedIn</a>
         </div>
       </div>
+      <p class="openline">Open to partnerships, GTM engineering, and product roles.</p>
+    </div>
+  </section>
 
-      <div class="status-strip">
-        <ul class="status-facts">
-          <li><span class="fact-value">$13.5M+</span><span class="fact-label">partner-influenced pipeline</span></li>
-          <li><span class="fact-value">50+</span><span class="fact-label">partner ecosystem</span></li>
-          <li><span class="fact-value">114%</span><span class="fact-label">net revenue retention</span></li>
-          <li><span class="fact-value">425M+</span><span class="fact-label">LLM tokens run</span></li>
-        </ul>
-        <p class="system-status"><span class="lamp" aria-hidden="true"></span>Open to new roles</p>
+  <!-- NUMBERS -->
+  <section class="panel p-chalk" aria-labelledby="h-figures">
+    <div class="in">
+      <h2 class="eyebrowless" id="h-figures">What the programs returned.</h2>
+      <div class="stmts">
+        <div class="row"><p class="stmt"><span class="n u">$9.5M+</span><br>in partner-sourced pipeline, and $13.5M+ influenced.</p></div>
+        <div class="row r"><p class="stmt"><span class="n f">~29%</span><br>of total company pipeline came from partners.</p></div>
+        <div class="row"><p class="stmt"><span class="n u">50+</span><br>partners in an ecosystem that started at zero.</p></div>
+        <div class="row r"><p class="stmt"><span class="n f">114%</span><br>net revenue retention across a 60+ account book.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="board-section" id="departures">
-      <div class="section-head">
-        <h2 class="flap-heading"><span class="flap-line" data-flap="DEPARTURES"></span></h2>
-        <p class="section-sub">Twelve years of revenue and analytics leadership. Select a row for detail.</p>
+  <!-- BIO -->
+  <section class="panel p-yellow" aria-labelledby="h-about">
+    <div class="in">
+      <h2 class="eyebrowless" id="h-about">Two halves of the same instinct.</h2>
+      <div class="bio">
+        <p>Twelve years across B2B SaaS, consulting, and analytics. As Head of Partnerships at Freshpaint I architected the partner program from zero: tiers, referral agreements, playbooks, and enablement across a 50+ partner ecosystem of agencies and technology partners, generating $9.5M+ in partner-sourced pipeline. None of it happened in a silo. It meant staying in lockstep with Sales, Marketing, Customer Success, Legal, and Finance so partner activity showed up in real pipeline, not just a slide.</p>
+        <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output automates meeting action items into a task board through a Slack approve or deny flow, and went into daily use by teammates. Postgame turns a recorded customer call into a structured renewal-health read within 30 seconds, so early warning signs stop evaporating the moment the call ends. Production systems that shipped and stayed running, not demos.</p>
+        <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="board-frame">
-        <table class="board-table board-table-full" id="departures-table">
-          <caption class="visually-hidden">Career history with scope and outcomes</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="col-time">Since</th>
-              <th scope="col" class="col-dest">Role and company</th>
-              <th scope="col" class="col-scope">Scope</th>
-              <th scope="col" class="col-status">Status</th>
-            </tr>
-          </thead>
-          <tbody>
+  <!-- CAREER -->
+  <section class="panel p-ink" aria-labelledby="h-career">
+    <div class="in">
+      <h2 class="eyebrowless" id="h-career">Twelve years, one spine.</h2>
+      <div class="bus">
 
-            <tr class="board-row" data-row="dep-1">
-              <td class="col-time">2024</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="dep-1-panel">
-                  <span class="dest-main">Head of Partnerships</span>
-                  <span class="dest-sub">Freshpaint</span>
-                </button>
-              </td>
-              <td class="col-scope">50+ partner ecosystem, 3-person team</td>
-              <td class="col-status"><span class="status status-live">In service</span></td>
-            </tr>
-            <tr class="detail-row" id="dep-1-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <ul class="detail-list">
-                    <li>Architected the partner program from 0 to 3 team members at a Series B startup, establishing partner tiers, referral agreements, playbooks, and enablement across 50+ digital agency, legal, compliance, and technology partners.</li>
-                    <li>Generated $9.5M+ in partner-sourced pipeline and $13.5M+ partner-influenced, roughly 29% of total company pipeline, resulting in $5.5M+ closed revenue.</li>
-                    <li>Designed and launched GTM motions with strategic partners: co-marketing, demand generation, in-person events, executive alignment, and account mapping.</li>
-                    <li>Hit partner pipeline quota in 8 of 9 quarters and conducted 100+ discovery calls.</li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+        <article class="role">
+          <div class="rhead">
+            <h3>Head of Partnerships</h3>
+            <span class="meta">Freshpaint</span>
+          </div>
 
-            <tr class="board-row" data-row="dep-2">
-              <td class="col-time">2023</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="dep-2-panel">
-                  <span class="dest-main">Account Manager</span>
-                  <span class="dest-sub">Freshpaint</span>
-                </button>
-              </td>
-              <td class="col-scope">First AM hire, 60+ accounts</td>
-              <td class="col-status"><span class="status">Completed</span></td>
-            </tr>
-            <tr class="detail-row" id="dep-2-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <ul class="detail-list">
-                    <li>Joined as Freshpaint's first Account Management hire at roughly 25 people and built the foundational renewal and upsell motions that defined the function.</li>
-                    <li>Managed a 60+ customer portfolio of healthcare SaaS accounts, achieving 114% net revenue retention across the book.</li>
-                    <li>Spent the first six months as sole AM, interviewing customers and internal stakeholders to define renewal, upsell, and customer health processes from scratch.</li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+          <p class="rdate">Jan 2024-Jul 2026</p>
+          <ul>
+            <li>Architected the partner program from <b>0 to 3 team members</b> at a Series B startup, establishing partner tiers, referral agreements, playbooks, and enablement across 50+ digital agency, legal, compliance, and technology partners.</li>
+            <li>Generated <b>$9.5M+ in partner-sourced pipeline</b> and $13.5M+ partner-influenced, roughly 29% of total company pipeline, resulting in $5.5M+ closed revenue.</li>
+            <li>Designed and launched GTM motions with strategic partners: co-marketing, demand generation, in-person events, executive alignment, and account mapping.</li>
+            <li>Hit partner pipeline quota in <b>8 of 9 quarters</b> and conducted 100+ discovery calls.</li>
+          </ul>
+          <div class="dims">
+            <div class="dim"><span class="v">$9.5M+</span><span class="l">Partner-sourced pipeline</span></div>
+            <div class="dim"><span class="v">$13.5M+</span><span class="l">Partner-influenced pipeline</span></div>
+            <div class="dim"><span class="v">~29%</span><span class="l">of total company pipeline</span></div>
+            <div class="dim"><span class="v">50+</span><span class="l">Partner ecosystem</span></div>
+          </div>
+        </article>
 
-            <tr class="board-row" data-row="dep-3">
-              <td class="col-time">2022</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="dep-3-panel">
-                  <span class="dest-main">Associate Director, Analytics</span>
-                  <span class="dest-sub">Seer Interactive</span>
-                </button>
-              </td>
-              <td class="col-scope">4 Team Leads, ~$5M book</td>
-              <td class="col-status"><span class="status">Completed</span></td>
-            </tr>
-            <tr class="detail-row" id="dep-3-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <ul class="detail-list">
-                    <li>Managed four Team Leads running cross-functional teams of analysts, developers, and analytics strategists across a ~$5M book of business with 91%+ client retention.</li>
-                    <li>Primary architect of the division's standardized Measurement Strategy process, rolled out across 40 to 50 clients and every Team Lead.</li>
-                    <li>Central to the division's shift from a pure measurement shop to Digital Measurement Solutions, redefining the service offering and its positioning.</li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+        <article class="role">
+          <div class="rhead">
+            <h3>Account Manager</h3>
+            <span class="meta">Freshpaint</span>
+          </div>
 
-            <tr class="board-row" data-row="dep-4">
-              <td class="col-time">2017</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="dep-4-panel">
-                  <span class="dest-main">Analytics Team Lead</span>
-                  <span class="dest-sub">Seer Interactive</span>
-                </button>
-              </td>
-              <td class="col-scope">Multi-account portfolio</td>
-              <td class="col-status"><span class="status">Completed</span></td>
-            </tr>
-            <tr class="detail-row" id="dep-4-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <ul class="detail-list">
-                    <li>Managed a team of Account Managers on analytics operations and client strategy across a multi-account portfolio, holding 88%+ retention.</li>
-                    <li>Supported Team Leads who owned direct client relationships, stepping in for high-stakes situations, executive escalations, and complex implementations.</li>
-                    <li>Provided senior oversight on tracking strategies, KPI frameworks, and automated reporting structures.</li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+          <p class="rdate">Jul 2023-Jan 2024</p>
+          <ul>
+            <li>Joined as Freshpaint's <b>first Account Management hire</b> at roughly 25 people and built the foundational renewal and upsell motions that defined the function.</li>
+            <li>Managed a 60+ customer portfolio of healthcare SaaS accounts, achieving <b>114% net revenue retention</b> across the book.</li>
+            <li>Spent the first six months as sole AM, interviewing customers and internal stakeholders to define renewal, upsell, and customer health processes from scratch.</li>
+          </ul>
+          <div class="dims">
+            <div class="dim"><span class="v">114%</span><span class="l">Net revenue retention</span></div>
+            <div class="dim"><span class="v">60+</span><span class="l">Account portfolio</span></div>
+          </div>
+        </article>
 
-            <tr class="board-row" data-row="dep-5">
-              <td class="col-time">2014</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="dep-5-panel">
-                  <span class="dest-main">Analytics Associate</span>
-                  <span class="dest-sub">Seer Interactive</span>
-                </button>
-              </td>
-              <td class="col-scope">Individual contributor track</td>
-              <td class="col-status"><span class="status">Completed</span></td>
-            </tr>
-            <tr class="detail-row" id="dep-5-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <ul class="detail-list">
-                    <li>Progressed through individual contributor roles into Senior Account Manager, building expertise in web analytics implementation, tag management, and reporting.</li>
-                    <li>Built a fully custom reporting suite on the Google Analytics API through a Sheets add-on, structuring raw API data into an automated reporting system.</li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+        <article class="role">
+          <div class="rhead">
+            <h3>Associate Director, Analytics</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
 
-          </tbody>
-        </table>
+          <p class="rdate">Jul 2022-Jul 2023</p>
+          <ul>
+            <li>Managed <b>four Team Leads</b> running cross-functional teams of analysts, developers, and analytics strategists across a ~$5M book of business with 91%+ client retention.</li>
+            <li>Primary architect of the division's standardized <b>Measurement Strategy process</b>, rolled out across 40 to 50 clients and every Team Lead.</li>
+            <li>Central to the division's shift from a pure measurement shop to Digital Measurement Solutions, redefining the service offering and its positioning.</li>
+          </ul>
+          <div class="dims">
+            <div class="dim"><span class="v">~$5M</span><span class="l">Book of business</span></div>
+            <div class="dim"><span class="v">4</span><span class="l">Team Leads managed</span></div>
+            <div class="dim"><span class="v">91%+</span><span class="l">Client retention</span></div>
+            <div class="dim"><span class="v">40 to 50</span><span class="l">Clients on the rollout</span></div>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Analytics Team Lead</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
+
+          <p class="rdate">Jan 2017-Jul 2022</p>
+          <ul>
+            <li>Managed a team of Account Managers on analytics operations and client strategy across a multi-account portfolio, holding <b>88%+ retention</b>.</li>
+            <li>Supported Team Leads who owned direct client relationships, stepping in for high-stakes situations, executive escalations, and complex implementations.</li>
+            <li>Provided senior oversight on tracking strategies, KPI frameworks, and automated reporting structures.</li>
+          </ul>
+          <div class="dims">
+            <div class="dim"><span class="v">88%+</span><span class="l">Portfolio retention</span></div>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Analytics Associate</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
+
+          <p class="rdate">Sep 2014-Jan 2017</p>
+          <ul>
+            <li>Progressed through individual contributor roles into Senior Account Manager, building expertise in web analytics implementation, tag management, and reporting.</li>
+            <li>Built a fully custom reporting suite on the Google Analytics API through a Sheets add-on, structuring raw API data into an automated reporting system.</li>
+          </ul>
+          <div class="dims">
+            <div class="dim"><span class="v">4</span><span class="l">Roles progressed through</span></div>
+          </div>
+        </article>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="board-section" id="arrivals">
-      <div class="section-head">
-        <h2 class="flap-heading"><span class="flap-line" data-flap="ARRIVALS"></span></h2>
-        <p class="section-sub">Products built and shipped solo, four of them on the Claude API. Select a row for detail.</p>
+  <!-- SOFTWARE STATEMENT -->
+  <section class="panel p-ultra" aria-labelledby="h-built">
+    <div class="in">
+      <h2 class="eyebrowless" id="h-built">Then I built what the function needed.</h2>
+      <div class="stmts">
+        <div class="row"><p class="stmt"><span class="n y">6</span><br>products shipped end to end, four on the Claude API.</p></div>
+        <div class="row r"><p class="stmt"><span class="n y">425M+</span><br>LLM tokens run across builds, agents, and daily work.</p></div>
       </div>
+    </div>
+  </section>
 
-      <div class="board-frame">
-        <table class="board-table board-table-full" id="arrivals-table">
-          <caption class="visually-hidden">Shipped products with stack and status</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="col-ref">Ref</th>
-              <th scope="col" class="col-dest">Product</th>
-              <th scope="col" class="col-scope">Stack</th>
-              <th scope="col" class="col-status">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr class="board-row" data-row="arr-1">
-              <td class="col-ref">OUT 01</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="arr-1-panel">
-                  <span class="dest-main">Output</span>
-                  <span class="dest-sub">Multi-user SaaS</span>
-                </button>
-              </td>
-              <td class="col-scope">Node.js, TypeScript, Supabase, Claude API, Fly.io</td>
-              <td class="col-status"><span class="status status-live">Live</span></td>
-            </tr>
-            <tr class="detail-row" id="arr-1-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <dl class="case">
-                    <dt>Problem</dt>
-                    <dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call, a small task that quietly ate real time every day.</dd>
-                    <dt>Decision</dt>
-                    <dd>Built a human-in-the-loop Slack approve or deny flow instead of writing tasks straight into the board, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
-                    <dt>Outcome</dt>
-                    <dd>Live multi-user SaaS in daily use by teammates, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
-                  </dl>
-                  <a class="detail-link" href="https://getoutput.app" target="_blank" rel="noopener">
-                    GetOutput.app
-                    <svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-                  </a>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="board-row" data-row="arr-2">
-              <td class="col-ref">PGM 02</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="arr-2-panel">
-                  <span class="dest-main">Postgame</span>
-                  <span class="dest-sub">CS command center</span>
-                </button>
-              </td>
-              <td class="col-scope">Node.js, TypeScript, Postgres, Claude Haiku, Fly.io</td>
-              <td class="col-status"><span class="status status-build">In build</span></td>
-            </tr>
-            <tr class="detail-row" id="arr-2-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <dl class="case">
-                    <dt>Problem</dt>
-                    <dd>CSMs were surfacing renewal risk on customer calls, then losing it the moment the call ended.</dd>
-                    <dt>Decision</dt>
-                    <dd>Human in the loop by design: the model drafts the read on sentiment and renewal confidence, the CSM confirms it in a Slack modal, so nothing fabricated reaches the CRM.</dd>
-                    <dt>Outcome</dt>
-                    <dd>Every confirmed answer writes back onto the call's CRM record and rolls up into a leadership readout scoring renewal risk across every account inside its 90-day window.</dd>
-                  </dl>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="board-row" data-row="arr-3">
-              <td class="col-ref">CLT 03</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="arr-3-panel">
-                  <span class="dest-main">ClienTell</span>
-                  <span class="dest-sub">Research automation</span>
-                </button>
-              </td>
-              <td class="col-scope">React, Express, Postgres, Playwright, Claude API</td>
-              <td class="col-status"><span class="status status-live">Live</span></td>
-            </tr>
-            <tr class="detail-row" id="arr-3-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <dl class="case">
-                    <dt>Problem</dt>
-                    <dd>Pre-call research meant manually digging through a company's website to figure out who they already work with.</dd>
-                    <dt>Decision</dt>
-                    <dd>Built a crawler with three depth settings (homepage, 20-page scan, 50-page scan) that reads client mentions with confidence scoring and industry inference, instead of a flat page-by-page manual search.</dd>
-                    <dt>Outcome</dt>
-                    <dd>Saves the team roughly 5 hours a month previously spent on manual research and prospecting, with results exportable straight to CSV.</dd>
-                  </dl>
-                  <a class="detail-link" href="https://clientell.fly.dev" target="_blank" rel="noopener">
-                    clientell.fly.dev
-                    <svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-                  </a>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="board-row" data-row="arr-4">
-              <td class="col-ref">DBA 04</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="arr-4-panel">
-                  <span class="dest-main">Daily Brief Agent</span>
-                  <span class="dest-sub">Enterprise agent</span>
-                </button>
-              </td>
-              <td class="col-scope">Glean, Google Calendar, Notion, HubSpot</td>
-              <td class="col-status"><span class="status status-live">In daily use</span></td>
-            </tr>
-            <tr class="detail-row" id="arr-4-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <dl class="case">
-                    <dt>Problem</dt>
-                    <dd>Everyone started the day cold, with no context on the accounts and partners already sitting on the calendar.</dd>
-                    <dt>Decision</dt>
-                    <dd>Built on an enterprise agent platform rather than a one-off script, pulling from calendar, knowledge base, and CRM sources so the brief stays current as those systems change.</dd>
-                    <dt>Outcome</dt>
-                    <dd>A personalized morning brief lands for every user on the team before their first meeting, cutting manual pre-meeting prep.</dd>
-                  </dl>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="board-row" data-row="arr-5">
-              <td class="col-ref">FQT 05</td>
-              <td class="col-dest">
-                <button type="button" class="row-btn" aria-expanded="false" aria-controls="arr-5-panel">
-                  <span class="dest-main">Focus Quest</span>
-                  <span class="dest-sub">Productivity tool</span>
-                </button>
-              </td>
-              <td class="col-scope">Next.js 15, TypeScript, Supabase, Docker, Fly.io</td>
-              <td class="col-status"><span class="status status-live">Live</span></td>
-            </tr>
-            <tr class="detail-row" id="arr-5-panel" hidden>
-              <td colspan="4">
-                <div class="detail-panel">
-                  <dl class="case">
-                    <dt>Problem</dt>
-                    <dd>Most Pomodoro timers either nag constantly or get abandoned after a week.</dd>
-                    <dt>Decision</dt>
-                    <dd>Built points, streaks, and badges on top of the timer instead of a bare countdown, with wall-clock accurate timing that survives the tab going to sleep.</dd>
-                    <dt>Outcome</dt>
-                    <dd>A calm, distraction-free daily-use tool with session history to track focus habits over time.</dd>
-                  </dl>
-                  <a class="detail-link" href="https://focusquest.fly.dev" target="_blank" rel="noopener">
-                    focusquest.fly.dev
-                    <svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-                  </a>
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="service-section" id="service">
-      <div class="section-head">
-        <h2 class="flap-heading"><span class="flap-line" data-flap="SERVICE INFO"></span></h2>
-      </div>
-
-      <div class="notice-board">
-        <div class="notice-copy">
-          <p>Twelve years across B2B SaaS, consulting, and analytics. As Head of Partnerships at Freshpaint I architected the partner program from zero: tiers, referral agreements, playbooks, and enablement across a 50+ partner ecosystem of agencies and technology partners, generating $9.5M+ in partner-sourced pipeline. None of it happened in a silo. It meant staying in lockstep with Sales, Marketing, Customer Success, Legal, and Finance so partner activity showed up in real pipeline, not just a slide.</p>
-          <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output automates meeting action items into a task board through a Slack approve or deny flow, in daily use by teammates today. Postgame turns a recorded customer call into a structured renewal-health read within 30 seconds, so early warning signs stop evaporating the moment the call ends. Production systems in daily use, not demos.</p>
-          <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+  <!-- SYSTEMS -->
+  <section class="wpanel p-chalk" aria-labelledby="w-output">
+    <div class="in">
+      <div class="wtop">
+        <div>
+          <h3 id="w-output">Output</h3>
+          <p class="wtag">Multi-user SaaS. Live.</p>
+          <a class="wlink" href="https://getoutput.app">getoutput.app</a>
         </div>
-
-        <dl class="notice-meta">
-          <dt>Speaking</dt>
-          <dd>New York City, Philadelphia, San Diego, London, Budapest</dd>
-          <dt>Education</dt>
-          <dd>Drexel University, Magna Cum Laude, 2014</dd>
-          <dt>Certifications</dt>
-          <dd>Claude 101, Claude Code 101, AI Fluency, Agent Skills (Anthropic)</dd>
-          <dt>Retention record</dt>
-          <dd>114% NRR at Freshpaint. 91%+ client retention at Seer.</dd>
+        <dl class="spec">
+          <dt>Problem</dt><dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call, a small task that quietly ate real time every day.</dd>
+          <dt>Decision</dt><dd>Built a <b>human-in-the-loop Slack approve or deny flow</b> instead of writing tasks straight into the board, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
+          <dt>Outcome</dt><dd>Live multi-user SaaS that went into daily use by teammates, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Supabase, Claude API, Fly.io</dd>
         </dl>
       </div>
-    </section>
+      <figure class="shot bleed-r">
+        <div class="plate"><img src="assets/output.png" alt="The Output marketing site, showing the action-item dashboard and the Slack approve or skip flow." loading="lazy" width="1280" height="760"></div>
+        <figcaption>getoutput.app, captured live</figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <section class="contact-section" id="contact">
-      <div class="board-frame contact-board">
-        <p class="contact-lead">Last board of the night</p>
-        <a class="contact-email" href="mailto:James.corr1990@gmail.com" aria-label="Email James.corr1990@gmail.com">
-          <span class="flap-stack">
-            <span class="flap-line" data-flap="JAMES.CORR1990"></span>
-            <span class="flap-line" data-flap="@GMAIL.COM"></span>
-          </span>
-        </a>
-        <ul class="contact-links">
-          <li><a href="https://www.linkedin.com/in/jamescorr1/" target="_blank" rel="noopener">LinkedIn<svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
-          <li><a href="https://getoutput.app" target="_blank" rel="noopener">GetOutput.app<svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
-          <li><a href="https://clientell.fly.dev" target="_blank" rel="noopener">clientell.fly.dev<svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
-          <li><a href="https://focusquest.fly.dev" target="_blank" rel="noopener">focusquest.fly.dev<svg class="icon-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
-        </ul>
+  <section class="wpanel p-ink" aria-labelledby="w-postgame">
+    <div class="in">
+      <div class="wtop">
+        <div>
+          <h3 id="w-postgame">Postgame</h3>
+          <p class="wtag">CS command center. Built at Freshpaint, still running.</p>
+        </div>
+        <dl class="spec">
+          <dt>Problem</dt><dd>CSMs were surfacing renewal risk on customer calls, then losing it the moment the call ended.</dd>
+          <dt>Decision</dt><dd>Human in the loop by design: the model drafts the read on sentiment and renewal confidence, the CSM confirms it in a Slack modal, so <b>nothing fabricated reaches the CRM</b>.</dd>
+          <dt>Outcome</dt><dd>Every confirmed answer writes back onto the call's CRM record and rolls up into a leadership readout scoring renewal risk across every account inside its 90-day window.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Postgres, Claude Haiku, Fly.io</dd>
+        </dl>
       </div>
-    </section>
+      <figure class="shot bleed-l">
+        <div class="plate">
+          <div class="ph"><strong>Screenshot to be supplied</strong><span>Internal tool, redaction needed</span></div>
+        </div>
+        <figcaption>Placeholder. Nothing is mocked up here.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  </main>
+  <section class="wpanel p-yellow" aria-labelledby="w-clientell">
+    <div class="in">
+      <div class="wtop">
+        <div>
+          <h3 id="w-clientell">ClienTell</h3>
+          <p class="wtag">Research automation. Live.</p>
+          <a class="wlink" href="https://clientell.fly.dev">clientell.fly.dev</a>
+        </div>
+        <dl class="spec">
+          <dt>Problem</dt><dd>Pre-call research meant manually digging through a company's website to figure out who they already work with.</dd>
+          <dt>Decision</dt><dd>Built a crawler with three depth settings (homepage, 20-page scan, 50-page scan) that reads client mentions with confidence scoring and industry inference, instead of a flat page-by-page manual search.</dd>
+          <dt>Outcome</dt><dd>Saved the team roughly <b>5 hours a month</b> previously spent on manual research and prospecting, with results exportable straight to CSV.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">React, Express, Postgres, Playwright, Claude API</dd>
+        </dl>
+      </div>
+      <figure class="shot bleed-r">
+        <div class="plate"><img src="assets/clientell.png" alt="The ClienTell crawler interface, showing the URL field, scan depth toggle, and max pages control." loading="lazy" width="1280" height="660"></div>
+        <figcaption>clientell.fly.dev, captured live</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <p>James Corr. Wilmington, DE. Remote.</p>
-    <p class="footer-status"><span class="lamp" aria-hidden="true"></span>Open to partnerships, GTM engineering, and product roles</p>
-  </footer>
+  <section class="wpanel p-chalk" aria-labelledby="w-brief">
+    <div class="in">
+      <div class="wtop">
+        <div>
+          <h3 id="w-brief">Daily Brief Agent</h3>
+          <p class="wtag">Enterprise agent. Built at Freshpaint, still running.</p>
+        </div>
+        <dl class="spec">
+          <dt>Problem</dt><dd>Everyone started the day cold, with no context on the accounts and partners already sitting on the calendar.</dd>
+          <dt>Decision</dt><dd>Built on an enterprise agent platform rather than a one-off script, pulling from calendar, knowledge base, and CRM sources so the brief stays current as those systems change.</dd>
+          <dt>Outcome</dt><dd>A personalized morning brief landed for <b>every user on the team</b> before their first meeting, cutting manual pre-meeting prep.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Glean, Google Calendar, Notion, HubSpot</dd>
+        </dl>
+      </div>
+      <figure class="shot bleed-l">
+        <div class="plate">
+          <div class="ph"><strong>Screenshot to be supplied</strong><span>Internal tool, redaction needed</span></div>
+        </div>
+        <figcaption>Placeholder. Nothing is mocked up here.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <script src="main.js" defer></script>
+  <section class="wpanel p-ink" aria-labelledby="w-focus">
+    <div class="in">
+      <div class="wtop">
+        <div>
+          <h3 id="w-focus">Focus Quest</h3>
+          <p class="wtag">Productivity tool.</p>
+        </div>
+        <dl class="spec">
+          <dt>Problem</dt><dd>Most Pomodoro timers either nag constantly or get abandoned after a week.</dd>
+          <dt>Decision</dt><dd>Built points, streaks, and badges on top of the timer instead of a bare countdown, with wall-clock accurate timing that survives the tab going to sleep.</dd>
+          <dt>Outcome</dt><dd>A calm, distraction-free daily-use tool with session history to track focus habits over time.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Next.js 15, TypeScript, Supabase, Docker, Fly.io</dd>
+        </dl>
+      </div>
+      <figure class="shot bleed-r">
+        <div class="plate">
+          <div class="ph"><strong>Screenshot to be supplied</strong><span>Host URL needs confirming</span></div>
+        </div>
+        <figcaption>Placeholder. focusquest.fly.dev does not currently resolve.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="panel p-ultra close" aria-labelledby="h-contact">
+    <div class="in">
+      <h2 class="eyebrowless" id="h-contact">Actively interviewing.</h2>
+      <a class="mail" href="mailto:James.corr1990@gmail.com">James.corr1990@gmail.com</a>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/jamescorr1/">LinkedIn</a></li>
+        <li><a href="https://getoutput.app">GetOutput.app</a></li>
+        <li><a href="https://clientell.fly.dev">clientell.fly.dev</a></li>
+      </ul>
+
+      <div class="tb">
+        <div class="cell">
+          <h3>Contact</h3>
+          <a class="mailsm" href="mailto:James.corr1990@gmail.com">James.corr1990@gmail.com</a>
+          <ul style="margin-top:.8rem">
+            <li><a href="https://www.linkedin.com/in/jamescorr1/">linkedin.com/in/jamescorr1/</a></li>
+            <li>Wilmington, DE. Remote.</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h3>Credentials</h3>
+          <ul>
+            <li>Drexel University, Magna Cum Laude, 2014</li>
+            <li>Claude 101, Claude Code 101, AI Fluency, Agent Skills (Anthropic)</li>
+            <li>Spoken in New York City, Philadelphia, San Diego, London, Budapest</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h3>Run to date</h3>
+          <ul>
+            <li>425M+ LLM tokens run, mostly Claude</li>
+            <li>6 products shipped end to end, 4 on the Claude API</li>
+            <li>114% NRR at Freshpaint. 91%+ retention at Seer.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tbfoot">
+        <span>James Corr. Wilmington, DE. Remote.</span>
+        <span class="y">Open to partnerships, GTM engineering, and product roles.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="rail" id="rail">
+  <span class="seg b">James Corr</span>
+  <span class="seg open"><i></i>Actively interviewing</span>
+  <span class="seg dim hide">Head of Partnerships, Freshpaint</span>
+  <span class="seg dim hide">$9.5M+ partner-sourced pipeline</span>
+  <a class="go" href="mailto:James.corr1990@gmail.com">Get in touch</a>
+</div>
+
+<script>
+(function(){
+  var intro = document.getElementById('intro');
+  if (!intro) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { intro.remove(); return; }
+
+  if (new URLSearchParams(location.search).get('intro') === 'off') { intro.remove(); return; }
+
+  var DUR = 2700;
+  document.documentElement.style.overflow = 'hidden';
+  intro.classList.add('go');
+
+  var done = false;
+  function finish(){
+    if (done) return;
+    done = true;
+    document.documentElement.style.overflow = '';
+    if (intro.parentNode) intro.remove();
+  }
+  setTimeout(finish, DUR);
+  // failsafe: never let the overlay strand the page
+  setTimeout(finish, 6000);
+})();
+
+(function(){
+  var rail = document.getElementById('rail');
+  var hero = document.querySelector('.hero');
+  if (!rail || !hero) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    rail.classList.add('on');
+    return;
+  }
+  new IntersectionObserver(function(entries){
+    rail.classList.toggle('on', !entries[0].isIntersecting);
+  }, { threshold: 0 }).observe(hero);
+})();
+</script>
 </body>
 </html>

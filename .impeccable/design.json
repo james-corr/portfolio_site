@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T00:00:00Z",
+  "title": "Design System: Split-Flap Concourse",
+  "extensions": {
+    "seed": {
+      "conceptSeedKey": "a9d5223a",
+      "scope": "direction",
+      "mode": "persuade",
+      "note": "Split-Flap Concourse was dealt as a catalog challenger on this key and chosen by the user over the assigned grounded direction. Persisted so a later session can verify the roll."
+    },
+    "colorMeta": {
+      "flap-black": {
+        "role": "neutral",
+        "displayName": "Flap Black",
+        "canonical": "#0D0D0F",
+        "tonalRamp": ["#050506", "#0D0D0F", "#17171A", "#24242A", "#3A3A42", "#5C5C68", "#8E8E9B", "#C9C9D1"]
+      },
+      "flap-shadow": {
+        "role": "neutral",
+        "displayName": "Flap Shadow",
+        "canonical": "#1B1B1E",
+        "note": "Declared in :root, currently unreferenced. Lit cells author their own two-stop gradient.",
+        "tonalRamp": ["#0A0A0B", "#131315", "#1B1B1E", "#2A2A2F", "#40404A", "#63636F", "#95959F", "#CDCDD3"]
+      },
+      "flap-face": {
+        "role": "neutral",
+        "displayName": "Flap Face",
+        "canonical": "#17171A",
+        "tonalRamp": ["#08080A", "#101012", "#17171A", "#242429", "#38383F", "#5A5A64", "#8D8D96", "#C8C8CE"]
+      },
+      "flap-white": {
+        "role": "neutral",
+        "displayName": "Paint White",
+        "canonical": "#F2F2F2",
+        "tonalRamp": ["#242424", "#3D3D3D", "#575757", "#757575", "#969696", "#B8B8B8", "#D6D6D6", "#F2F2F2"]
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "Concourse Amber",
+        "canonical": "#FFB400",
+        "tonalRamp": ["#3D2B00", "#5C4100", "#7A5700", "#996D00", "#C08800", "#E0A000", "#FFB400", "#FFD173"]
+      },
+      "amber-bright": {
+        "role": "primary",
+        "displayName": "Amber Bright",
+        "canonical": "#FFC633",
+        "note": "Hover-only lift on filled amber. A literal in component rules, not a :root custom property.",
+        "tonalRamp": ["#402F00", "#604700", "#805E00", "#A07600", "#C79300", "#E7AC10", "#FFC633", "#FFDC85"]
+      },
+      "amber-dim": {
+        "role": "primary",
+        "displayName": "Amber Dim",
+        "canonical": "#C98D00",
+        "note": "Declared in :root, currently unreferenced. Amber states brighten on hover rather than dim.",
+        "tonalRamp": ["#302200", "#493300", "#614400", "#7A5500", "#9A6C00", "#B47E00", "#C98D00", "#F0B62E"]
+      },
+      "amber-ink": {
+        "role": "neutral",
+        "displayName": "Amber Ink",
+        "canonical": "#14100A",
+        "note": "The only text color permitted on an amber fill.",
+        "tonalRamp": ["#0A0805", "#14100A", "#241D12", "#3A2F1E", "#57462C", "#7C653F", "#A98C5A", "#D7BE93"]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Stop Red",
+        "canonical": "#D32F2F",
+        "note": "Declared and deliberately used nowhere. Reserved for a stopped, cancelled, or delayed state.",
+        "tonalRamp": ["#340B0B", "#4F1111", "#6A1717", "#8C1F1F", "#B02727", "#D32F2F", "#E56A6A", "#F3AEAE"]
+      },
+      "steel": {
+        "role": "secondary",
+        "displayName": "Brushed Steel",
+        "canonical": "#B6BBC2",
+        "tonalRamp": ["#22252A", "#33373D", "#4A4E55", "#63686F", "#7D838C", "#9AA0A8", "#B6BBC2", "#DCDFE3"]
+      },
+      "steel-dark": {
+        "role": "secondary",
+        "displayName": "Steel Dark",
+        "canonical": "#7D838C",
+        "tonalRamp": ["#1D1F23", "#2C2F34", "#3F434A", "#565B62", "#6B7079", "#7D838C", "#A2A7AE", "#CFD2D7"]
+      },
+      "steel-deep": {
+        "role": "secondary",
+        "displayName": "Steel Deep",
+        "canonical": "#4A4E55",
+        "note": "Declared in :root, currently unreferenced. The darkest step of the steel ramp.",
+        "tonalRamp": ["#131417", "#1E2023", "#2C2E33", "#3B3E44", "#4A4E55", "#666B73", "#8C9199", "#BFC3C9"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#9AA0A8",
+        "tonalRamp": ["#212429", "#31353B", "#454951", "#5C6068", "#757A82", "#8A9098", "#9AA0A8", "#C8CCD1"]
+      },
+      "copy-dim": {
+        "role": "neutral",
+        "displayName": "Copy Dim",
+        "canonical": "#D5D8DC",
+        "tonalRamp": ["#25282C", "#383B40", "#4D5157", "#666A71", "#83878E", "#A3A7AD", "#C0C4C9", "#D5D8DC"]
+      },
+      "lamp-green": {
+        "role": "tertiary",
+        "displayName": "Service Green",
+        "canonical": "#35D06A",
+        "note": "The one hue outside the stated palette. Confined to the 0.6rem service lamp; never text, fill, or border.",
+        "tonalRamp": ["#0A3319", "#0F4C26", "#146633", "#1A8043", "#22A354", "#2ABC61", "#35D06A", "#8AE7AA"]
+      },
+      "seam": {
+        "role": "neutral",
+        "displayName": "Cell Seam",
+        "canonical": "rgba(0, 0, 0, 0.85)",
+        "note": "The 1px black line at 50% height of every flap cell and wordmark cell."
+      },
+      "cell-edge": {
+        "role": "neutral",
+        "displayName": "Cell Edge",
+        "canonical": "rgba(255, 255, 255, 0.07)",
+        "note": "Declared in :root, currently unreferenced. Lit cells use 0.08 and ghosts 0.045 inline."
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Flap Display", "purpose": "The hero flap matrix only: name plus a three-row thesis, all at one cell size. Barlow Condensed 700." },
+      "headline": { "displayName": "Board Heading", "purpose": "Section flap headings: DEPARTURES, ARRIVALS, SERVICE INFO. Barlow Condensed 700." },
+      "title": { "displayName": "Destination", "purpose": "The role or product name in a board row. Condensed caps, resolves to 600 by font matching." },
+      "data": { "displayName": "Board Data", "purpose": "Time and reference columns. Tabular numerals so digits align down the column." },
+      "body": { "displayName": "Timetable Prose", "purpose": "Sentence-case Barlow for anything a human reads as a paragraph. Measure capped at 60-78ch." },
+      "label": { "displayName": "Service Label", "purpose": "Table headers, nav glosses, definition-list terms. Wide-tracked uppercase Barlow." }
+    },
+    "shadows": [
+      { "name": "frame-seat", "value": "0 0 0 1px rgba(0,0,0,0.85), 0 26px 60px -30px rgba(0,0,0,0.95)", "purpose": "Hairline dark seat around the steel frame plus a wide soft drop. .board-frame only." },
+      { "name": "panel-recess", "value": "inset 0 3px 14px -4px rgba(0,0,0,0.9)", "purpose": "Overlay inside the frame so the flap panel reads as recessed behind the steel." },
+      { "name": "lamp-halo", "value": "0 0 0 3px rgba(53,208,106,0.16)", "purpose": "The only glow in the system, on the 0.6rem service lamp." }
+    ],
+    "surfaces": [
+      { "name": "steel-plate", "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cdefs%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035 0.9' numOctaves='3' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='32' height='32' fill='%23A9AFB6'/%3E%3Crect width='32' height='32' filter='url(%23b)' opacity='0.4'/%3E%3C/svg%3E\")", "purpose": "Brushed steel. Flat base with stitched anisotropic grain, no baked gradient, so the tile is seamless in both axes and the brush direction is real." },
+      { "name": "rivet", "value": "radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%)", "purpose": "A domed bolt head at a fixed 7px, so it stays a bolt at any tile pitch. Corners no-repeat, rails repeat-x on a 112px tile." },
+      { "name": "flap-face", "value": "linear-gradient(180deg, #202024 0%, #202024 50%, #131316 50%, #131316 100%)", "purpose": "The lit leaf: a hard 50% break paired with the 1px seam overlay." },
+      { "name": "flap-ghost-face", "value": "linear-gradient(180deg, #191A1D 0%, #191A1D 50%, #101013 50%, #101013 100%)", "purpose": "An unlit cell past the end of a row. Part of the design, not padding." },
+      { "name": "hall-ambience", "value": "radial-gradient(115% 78% at 50% -12%, rgba(255,180,0,0.07), transparent 62%), radial-gradient(85% 62% at 88% 8%, rgba(182,187,194,0.06), transparent 60%)", "purpose": "Fixed body::before layer: a dim hall behind the boards." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing in the system. State transitions and the flap keyframe both use it." },
+      { "name": "state-transition", "value": "0.18s", "purpose": "Color and background only. No transform, no shadow, no lift." },
+      { "name": "flap-tick", "value": "110ms", "purpose": "One leaf turn. The CSS keyframe duration and the JS interval are matched." },
+      { "name": "flap-stagger", "value": "55ms", "purpose": "Per-cell delay across a row, so a row lands left to right." },
+      { "name": "flap-turns", "value": "4 + (index % 5)", "purpose": "Number of turns before a cell lands on its character." },
+      { "name": "resize-debounce", "value": "140ms", "purpose": "Debounce before re-measuring panels and re-padding rows with ghost cells." }
+    ],
+    "breakpoints": [
+      { "name": "status-strip", "value": "1279px" },
+      { "name": "hero-stack", "value": "1080px" },
+      { "name": "header-rewrap", "value": "860px" },
+      { "name": "board-restack", "value": "720px" },
+      { "name": "facts-wrap", "value": "480px" },
+      { "name": "headline-step", "value": "359px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Board Frame",
+      "kind": "custom",
+      "refersTo": "board-frame",
+      "description": "A matte panel held in brushed steel on all four sides, riveted at the corners and along the rails. Every board on the page is one of these.",
+      "html": "<div class=\"ds-board-frame\"><p class=\"ds-board-frame-note\">PANEL</p></div>",
+      "css": ".ds-board-frame { position: relative; background: #0D0D0F; background-clip: padding-box; border: 11px solid transparent; border-image-source: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cdefs%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035 0.9' numOctaves='3' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='32' height='32' fill='%23A9AFB6'/%3E%3Crect width='32' height='32' filter='url(%23b)' opacity='0.4'/%3E%3C/svg%3E\"); border-image-slice: 8; border-image-repeat: repeat; padding: 2rem; box-shadow: 0 0 0 1px rgba(0,0,0,0.85), 0 26px 60px -30px rgba(0,0,0,0.95); } .ds-board-frame::before { content: ''; position: absolute; inset: -11px; pointer-events: none; z-index: 3; background-image: radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%), radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%), radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%), radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%), radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%), radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0,0,0,0.7) 97%, transparent 100%); background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-x; background-position: 2px 2px, calc(100% - 2px) 2px, 2px calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), 58px 2px, 58px calc(100% - 2px); background-size: 7px 7px, 7px 7px, 7px 7px, 7px 7px, 112px 7px, 112px 7px; } .ds-board-frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: 0 3px 14px -4px rgba(0,0,0,0.9) inset; } .ds-board-frame-note { margin: 0; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-weight: 600; letter-spacing: 0.18em; color: #7D838C; }"
+    },
+    {
+      "name": "Flap Row",
+      "kind": "custom",
+      "refersTo": "flap-cell",
+      "description": "The atom of the system: fixed 0.72em cells with a hard mid gradient break and a 1px seam, laid in a non-wrapping row. Trailing ghost cells run the matrix to the panel edge.",
+      "html": "<span class=\"ds-flap-line\"><span class=\"ds-flap\"><span class=\"ds-flap-glyph\">A</span></span><span class=\"ds-flap\"><span class=\"ds-flap-glyph\">R</span></span><span class=\"ds-flap\"><span class=\"ds-flap-glyph\">R</span></span><span class=\"ds-flap ds-flap-space\"><span class=\"ds-flap-glyph\"> </span></span><span class=\"ds-flap\"><span class=\"ds-flap-glyph\">0</span></span><span class=\"ds-flap\"><span class=\"ds-flap-glyph\">1</span></span><span class=\"ds-flap ds-flap-ghost\"><span class=\"ds-flap-glyph\"> </span></span><span class=\"ds-flap ds-flap-ghost\"><span class=\"ds-flap-glyph\"> </span></span></span>",
+      "css": ".ds-flap-line { display: flex; flex-wrap: nowrap; gap: 3px; overflow: hidden; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-weight: 700; font-size: 2.4rem; letter-spacing: 0.01em; line-height: 1; } .ds-flap { position: relative; display: inline-grid; place-items: center; width: 0.72em; flex: none; padding: 0.1em 0; background: linear-gradient(180deg, #202024 0%, #202024 50%, #131316 50%, #131316 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 2px; line-height: 1; color: #F2F2F2; overflow: hidden; transform-origin: center top; } .ds-flap::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0,0,0,0.85); z-index: 2; } .ds-flap-space, .ds-flap-ghost { color: transparent; } .ds-flap-ghost { background: linear-gradient(180deg, #191A1D 0%, #191A1D 50%, #101013 50%, #101013 100%); border-color: rgba(255,255,255,0.045); } .ds-flap-glyph { display: block; transform-origin: center top; backface-visibility: hidden; animation: ds-flap-turn 110ms cubic-bezier(0.16, 1, 0.3, 1) 3; } @keyframes ds-flap-turn { 0% { transform: rotateX(0deg); opacity: 1; } 55% { transform: rotateX(-88deg); opacity: 0.35; } 56% { transform: rotateX(88deg); opacity: 0.35; } 100% { transform: rotateX(0deg); opacity: 1; } } @media (prefers-reduced-motion: reduce) { .ds-flap-glyph { animation: none; } }"
+    },
+    {
+      "name": "Amber Button",
+      "kind": "button",
+      "refersTo": "button-amber",
+      "description": "The outline action. Amber border and text at rest, amber fill with amber-ink text on hover or focus.",
+      "html": "<a class=\"ds-btn-amber\" href=\"#\">Contact<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-amber { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.6rem 1.1rem; background: transparent; border: 1px solid #FFB400; border-radius: 2px; color: #FFB400; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.18s cubic-bezier(0.16,1,0.3,1), color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-amber:hover, .ds-btn-amber:focus-visible { background: #FFB400; color: #14100A; } .ds-btn-amber:focus-visible { outline: 2px solid #FFB400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Amber Button, Large",
+      "kind": "button",
+      "refersTo": "button-amber-lg",
+      "description": "The one filled action on the page, used as the hero CTA. Brightens rather than dims on hover.",
+      "html": "<a class=\"ds-btn-amber-lg\" href=\"#\">Get in touch<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-amber-lg { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.6rem; background: #FFB400; border: 1px solid #FFB400; border-radius: 2px; color: #14100A; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1.2rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.18s cubic-bezier(0.16,1,0.3,1), color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-amber-lg:hover, .ds-btn-amber-lg:focus-visible { background: #FFC633; color: #14100A; } .ds-btn-amber-lg:focus-visible { outline: 2px solid #FFB400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Lamps",
+      "kind": "chip",
+      "refersTo": "status-live",
+      "description": "The state vocabulary: amber outline for live or current, steel outline for completed, steel outline with white text for in build. Red is reserved for a stopped state and is unbuilt.",
+      "html": "<span class=\"ds-status ds-status-live\">In service</span> <span class=\"ds-status\">Completed</span> <span class=\"ds-status ds-status-build\">In build</span>",
+      "css": ".ds-status { display: inline-block; padding: 0.24rem 0.6rem; border: 1px solid rgba(182,187,194,0.4); border-radius: 2px; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: #B6BBC2; } .ds-status-live { border-color: #FFB400; color: #FFB400; } .ds-status-build { border-color: #B6BBC2; color: #F2F2F2; }"
+    },
+    {
+      "name": "Board Table Row",
+      "kind": "card",
+      "refersTo": "board-row",
+      "description": "The only container in the system. A real semantic table row with a shrink-wrapped data column, a condensed-caps destination, a muted scope column, and a right-aligned status lamp. Hover and open both raise the destination to amber.",
+      "html": "<table class=\"ds-board-table\"><caption class=\"ds-vh\">Career history with scope and outcomes</caption><thead><tr><th scope=\"col\" class=\"ds-col-time\">Since</th><th scope=\"col\">Role and company</th><th scope=\"col\" class=\"ds-col-scope\">Scope</th><th scope=\"col\" class=\"ds-col-status\">Status</th></tr></thead><tbody><tr class=\"ds-board-row\"><td class=\"ds-col-time\">2024</td><td class=\"ds-col-dest\"><button type=\"button\" class=\"ds-row-btn\" aria-expanded=\"false\"><span class=\"ds-dest-main\">Head of Partnerships</span><span class=\"ds-dest-sub\">Freshpaint</span></button></td><td class=\"ds-col-scope\">50+ partner ecosystem, 3-person team</td><td class=\"ds-col-status\"><span class=\"ds-status ds-status-live\">In service</span></td></tr></tbody></table>",
+      "css": ".ds-board-table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; } .ds-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; } .ds-board-table thead th { padding: 0 0.75rem 0.6rem; text-align: left; font-family: 'Barlow', system-ui, sans-serif; font-weight: 500; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #7D838C; border-bottom: 1px solid rgba(182,187,194,0.2); white-space: nowrap; } .ds-board-table tbody td { padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: middle; } .ds-board-table tbody .ds-col-time { width: 1%; white-space: nowrap; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1.25rem; letter-spacing: 0.06em; color: #F2F2F2; } .ds-col-scope { font-size: 0.9rem; color: #9AA0A8; line-height: 1.45; } .ds-col-status { width: 1%; white-space: nowrap; text-align: right; } .ds-row-btn { display: grid; gap: 1px; width: 100%; text-align: left; padding: 0; background: none; border: none; color: inherit; font: inherit; cursor: pointer; } .ds-dest-main { display: block; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; text-transform: uppercase; color: #F2F2F2; transition: color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-dest-sub { display: block; font-family: 'Barlow', system-ui, sans-serif; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: #7D838C; } .ds-board-row { transition: background 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-board-row:hover, .ds-board-row:focus-within { background: rgba(255,255,255,0.035); } .ds-board-row:hover .ds-dest-main, .ds-board-row:focus-within .ds-dest-main { color: #FFB400; } .ds-row-btn:focus-visible { outline: 2px solid #FFB400; outline-offset: 2px; } .ds-status { display: inline-block; padding: 0.24rem 0.6rem; border: 1px solid rgba(182,187,194,0.4); border-radius: 2px; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: #B6BBC2; } .ds-status-live { border-color: #FFB400; color: #FFB400; }"
+    },
+    {
+      "name": "Concourse Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "A stacked pair: condensed caps word over a Barlow gloss naming the plain-English section. A 2px transparent underline turns amber on hover or focus, and the gloss is dropped below 860px.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><ul><li><a href=\"#\"><span class=\"ds-nav-word\">Departures</span><span class=\"ds-nav-gloss\">Career</span></a></li><li><a href=\"#\"><span class=\"ds-nav-word\">Arrivals</span><span class=\"ds-nav-gloss\">Shipped</span></a></li></ul></nav>",
+      "css": ".ds-nav ul { display: flex; gap: 2.25rem; list-style: none; margin: 0; padding: 0; } .ds-nav a { display: grid; gap: 1px; text-decoration: none; padding: 0.2rem 0; border-bottom: 2px solid transparent; transition: border-color 0.18s cubic-bezier(0.16,1,0.3,1), color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-nav-word { font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: #F2F2F2; line-height: 1.1; } .ds-nav-gloss { font-family: 'Barlow', system-ui, sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7D838C; line-height: 1.1; } .ds-nav a:hover, .ds-nav a:focus-visible { border-bottom-color: #FFB400; } .ds-nav a:hover .ds-nav-word, .ds-nav a:focus-visible .ds-nav-word { color: #FFB400; } @media (max-width: 860px) { .ds-nav-gloss { display: none; } }"
+    },
+    {
+      "name": "Status Strip",
+      "kind": "custom",
+      "refersTo": "status-strip",
+      "description": "The ruled service strip under the hero: amber values against steel labels, divided by 1px rules, with the green service lamp pushed right until 1279px where it takes its own row.",
+      "html": "<div class=\"ds-strip\"><ul class=\"ds-facts\"><li><span class=\"ds-fact-value\">$13.5M+</span><span class=\"ds-fact-label\">partner-influenced pipeline</span></li><li><span class=\"ds-fact-value\">50+</span><span class=\"ds-fact-label\">partner ecosystem</span></li><li><span class=\"ds-fact-value\">114%</span><span class=\"ds-fact-label\">net revenue retention</span></li></ul><p class=\"ds-system-status\"><span class=\"ds-lamp\" aria-hidden=\"true\"></span>Open to new roles</p></div>",
+      "css": ".ds-strip { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding: 1rem 2rem; background: rgba(255,255,255,0.025); border: 1px solid rgba(182,187,194,0.14); border-radius: 3px; } .ds-facts { display: flex; flex-wrap: wrap; flex: 1 1 auto; list-style: none; margin: 0; padding: 0; } .ds-facts li { display: flex; align-items: baseline; gap: 0.5rem; padding: 0 1.2rem; border-left: 1px solid rgba(182,187,194,0.22); font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.5; } .ds-facts li:first-child { padding-left: 0; border-left: none; } .ds-fact-value { color: #FFB400; } .ds-fact-label { color: #B6BBC2; } .ds-system-status { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0 auto; white-space: nowrap; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.07em; text-transform: uppercase; color: #F2F2F2; } .ds-lamp { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: #35D06A; box-shadow: 0 0 0 3px rgba(53,208,106,0.16); flex: none; } @media (max-width: 1279px) { .ds-system-status { margin-left: 0; width: 100%; padding-top: 0.85rem; border-top: 1px solid rgba(182,187,194,0.14); } }"
+    },
+    {
+      "name": "Detail Panel",
+      "kind": "custom",
+      "refersTo": "detail-panel",
+      "description": "The expanded body of a board row: black at 40% behind a 78ch column, holding either a dash-bulleted list or a Problem / Decision / Outcome definition list with amber terms.",
+      "html": "<div class=\"ds-detail-row\"><div class=\"ds-detail-panel\"><dl class=\"ds-case\"><dt>Problem</dt><dd>Teammates were manually copying meeting action items into the team's task board after every call.</dd><dt>Decision</dt><dd>A human-in-the-loop Slack approve or deny flow, so nothing lands without a person confirming it.</dd></dl><a class=\"ds-detail-link\" href=\"#\">GetOutput.app<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5\"/></svg></a></div></div>",
+      "css": ".ds-detail-row { background: rgba(0,0,0,0.4); border-bottom: 1px solid rgba(255,255,255,0.06); } .ds-detail-panel { padding: 1.3rem 1.6rem 1.7rem; max-width: 78ch; } .ds-case { display: grid; gap: 0.35rem; margin: 0; } .ds-case dt { font-family: 'Barlow', system-ui, sans-serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #FFB400; } .ds-case dd { margin: 0 0 0.9rem; font-family: 'Barlow', system-ui, sans-serif; font-size: 0.97rem; color: #D5D8DC; line-height: 1.6; } .ds-case dd:last-of-type { margin-bottom: 0; } .ds-detail-link { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 1.1rem; padding-bottom: 2px; border-bottom: 1px solid #FFB400; font-family: 'Barlow Condensed', ui-sans-serif, sans-serif; font-size: 1.05rem; letter-spacing: 0.1em; text-transform: uppercase; color: #FFB400; text-decoration: none; transition: color 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-detail-link:hover, .ds-detail-link:focus-visible { color: #FFC633; border-bottom-color: #FFC633; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Split-Flap Concourse",
+    "overview": "The world is a rail concourse departure board: matte flap black with a real seam through every character cell, brushed steel frames and rivets, paint-white condensed caps in fixed-width cells, amber reserved for live status. A career is read the way a hall reads a schedule, two boards running at once, revenue departing and software arriving. The board is a built object with hardware, not a dark theme with a monospace font.\n\nThe direction is recorded on concept seed key a9d5223a (scope: direction, mode: persuade), dealt as a catalog challenger against the assigned grounded direction and chosen by the user over it. That key is persisted so a later session can verify the roll rather than re-derive the world.\n\nDensity is high and horizontal. Every unit of information is a row in a table, so the page has no cards, no tiles, and no metric grid. Depth comes only from the steel frame and the recess behind it. The refusals are part of the world: no scroll-reveal counters, no terminal boot overlay, no glassmorphism, no gradient mesh, no hover lift.",
+    "keyCharacteristics": [
+      "Matte black panels held in four-sided brushed steel, riveted at the corners and along the rails",
+      "A 1px seam through the middle of every character cell, the single detail that makes the board a board",
+      "Amber is the only saturated color, and it means live, current, or actionable",
+      "Rows are the only container; every dataset is a real semantic table",
+      "Exactly two authored motion beats, both of them the board settling",
+      "Condensed caps for board voice, plain Barlow for anything a human reads as a sentence"
+    ],
+    "rules": [
+      { "name": "The Reserved Red Rule", "body": "Red is declared and spent on nothing. It belongs to a stopped state only. No error text, no destructive button, and no accent may claim it; if red appears anywhere other than a halted row, the system has been broken.", "section": "colors" },
+      { "name": "The Amber Scarcity Rule", "body": "Amber means live, current, or actionable, and nothing else. A completed row is steel outline; an in-build row is steel outline with white text. If a screen has more than one amber region competing for the eye, one of them is decorative and must be demoted to steel.", "section": "colors" },
+      { "name": "The Two Materials Rule", "body": "Surfaces are matte flap black; structure is brushed steel. There is no third material. The only translucency in the system is the sticky header's near-opaque scrim (rgba(13,13,15,0.94) with a 10px backdrop blur); nothing else is frosted, glassy, or tinted.", "section": "colors" },
+      { "name": "The Two Weights Rule", "body": "The condensed face ships only 600 and 700. Flap-voice elements that declare no weight inherit 400 and resolve to 600 by font matching, which is the intended board weight. Never author condensed at 400, 500, or 800; there is no file to serve it and synthesis will not match the painted glyph.", "section": "typography" },
+      { "name": "The One Matrix Rule", "body": "A flap panel has one cell size. The hero name and the thesis rows share a single font-size because a board has a single matrix; a headline with a smaller caption underneath is a poster, not a board. The size floor is set by the longest row fitting its panel, not by a comfortable reading size.", "section": "typography" },
+      { "name": "The Board Voice Rule", "body": "Condensed is always uppercase and always letterspaced (0.05em to 0.24em). Barlow is always sentence case. A condensed lowercase word or an uppercase paragraph of Barlow is out of world.", "section": "typography" },
+      { "name": "The Row Rule", "body": "Rows are the only container. Any new dataset is a table with real th and a caption, not a card grid, not tiles, not a stat row. If a piece of content cannot be expressed as a row, it belongs in the notice board's prose column.", "section": "layout" },
+      { "name": "The Designed Break Rule", "body": "Columns never reflow mid-row. At 720px a board restacks into whole labeled records the way a platform sign does. A layout that merely wraps its cells is a bug, not a breakpoint.", "section": "layout" },
+      { "name": "The Recess Rule", "body": "Depth belongs to the frame. Panels sit behind steel and everything inside them is flat. A shadow on a row, a status pill, or a button is out of world.", "section": "elevation" },
+      { "name": "The Real Surface Rule", "body": "Steel is an authored surface, not a gradient. --steel-plate is a 32px SVG data URI: feTurbulence fractal noise at baseFrequency 0.035 0.9 with stitchTiles: stitch, desaturated, at 0.4 opacity over a flat #A9AFB6 base. No baked gradient, because a roll baked into the tile resets at every repeat and puts a ladder of seams down the side rails.", "section": "elevation" },
+      { "name": "The Square Corner Rule", "body": "Max radius is 3px, and only on the two non-frame panels. Frames are 0. If a shape needs a radius to look finished, it is the wrong shape for this world.", "section": "shapes" },
+      { "name": "The Two Beats Rule", "body": "There are exactly two authored motion moments on the page: the board settling on arrival and the last board settling at the close. Not one per section. Anything legible before the motion runs must stay legible if the motion never runs.", "section": "components" },
+      { "name": "The Top Hinge Rule", "body": "A leaf hinges at its top edge and falls through rotateX with real perspective. No scaleY squash, no fade-in-up, no scroll-triggered reveal, no counter tick.", "section": "components" }
+    ],
+    "dos": [
+      "Do put every new dataset in a real <table> with a visually-hidden caption, scope=\"col\" headers, and tabular-nums.",
+      "Do wrap any new board in .board-frame so it inherits the steel, the rivets, and the recess. The frame is what makes a surface part of this world.",
+      "Do keep amber to live, current, and actionable states, plus the focus ring.",
+      "Do build display text out of fixed 0.72em flap cells with a seam, and pad the row with .flap-ghost cells so the matrix reaches the panel edge.",
+      "Do mark every flap cell aria-hidden and give its row a .visually-hidden text node carrying the real string.",
+      "Do hold radii at 0 (frames), 1px (wordmark), 2px (cells and chrome), 3px (soft panels).",
+      "Do self-host any new weight as a latin-subset woff2 in fonts/ with font-display: swap.",
+      "Do design the breakpoint: restack whole records, move an element to its own ruled row, or drop a gloss. Six breaks exist (1279, 1080, 860, 720, 480, 359) and each one is a decision.",
+      "Do make every new motion legible before it runs and instant under prefers-reduced-motion.",
+      "Do use [hidden] for collapsed panels and keep the display: none !important override, because board rows become display: block below 720px."
+    ],
+    "donts": [
+      "Don't spend the red token. It is reserved for a stopped state and is used zero times in this build.",
+      "Don't introduce cards, tiles, metric grids, or stat boxes. Rows are the only container.",
+      "Don't add a third authored motion beat, a scroll-reveal, a counter tick, or a terminal boot overlay.",
+      "Don't put a shadow on anything inside a board. Depth belongs to the frame.",
+      "Don't author Barlow Condensed at any weight other than 600 or 700; no other file is served.",
+      "Don't set condensed type in lowercase or run Barlow prose in uppercase.",
+      "Don't size a headline and a caption differently inside the same flap panel. One panel, one matrix, one cell size.",
+      "Don't fake steel with a linear-gradient. The frame is the --steel-plate turbulence tile, and a baked gradient bands at every repeat.",
+      "Don't stretch a rivet to fit a pitch. The bolt is 7px; the pitch is the 112px tile.",
+      "Don't add glass, frost, or gradient-mesh surfaces. The header scrim is the only translucent element in the system.",
+      "Don't use glyph icons or an icon font. Icons are inline SVG at 1.75 stroke with square caps and mitered joins.",
+      "Don't rely on aria-label on a generic span for an accessible name; render real text into a .visually-hidden node."
+    ]
+  }
+}

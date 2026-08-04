@@ -1,0 +1,1383 @@
+/* ==========================================================================
+   Fonts (self-hosted, latin subset)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/barlow-condensed-600-latin.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/barlow-condensed-700-latin.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/barlow-400-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/barlow-500-latin.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/barlow-600-latin.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Design tokens: Split-Flap Concourse
+   ========================================================================== */
+
+:root {
+  --flap-black: #0D0D0F;
+  --flap-shadow: #1B1B1E;
+  --flap-face: #17171A;
+  --flap-white: #F2F2F2;
+  --amber: #FFB400;
+  --amber-dim: #C98D00;
+  --red: #D32F2F;
+  --steel: #B6BBC2;
+  --steel-dark: #7D838C;
+  --steel-deep: #4A4E55;
+
+  --ink-muted: #9AA0A8;
+  --seam: rgba(0, 0, 0, 0.85);
+  --cell-edge: rgba(255, 255, 255, 0.07);
+
+  --font-flap: 'Barlow Condensed', ui-sans-serif, sans-serif;
+  --font-ui: 'Barlow', system-ui, -apple-system, sans-serif;
+
+  --page-max: 1320px;
+  --gutter: clamp(1rem, 3.5vw, 3rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Brushed steel, authored as a real surface: fine directional grain from
+     feTurbulence over a rolled-metal gradient, tiled along the frame. */
+  /* A small, near-isotropic tile: fine grain over a low-contrast roll, so the
+     frame reads as one continuous surface instead of banding at every repeat. */
+  /* Brushed steel. No baked gradient: a roll baked into the tile has to reset
+     at every repeat, which is what put a ladder of seams down the side rails.
+     A flat base carries stitched anisotropic grain instead, so the tile is
+     seamless in both axes and the brush direction is real. */
+  --steel-plate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cdefs%3E%3Cfilter id='b' filterUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035 0.9' numOctaves='3' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='32' height='32' fill='%23A9AFB6'/%3E%3Crect width='32' height='32' filter='url(%23b)' opacity='0.4'/%3E%3C/svg%3E");
+
+  /* Rivet: a domed head at a fixed 7px, so it stays a bolt at any tile pitch
+     rather than stretching into a smear. */
+  --rivet: radial-gradient(circle 3.5px at 3.5px 3.5px, #F1F4F6 0%, #B4BAC1 32%, #6E737C 64%, #33373D 86%, rgba(0, 0, 0, 0.7) 97%, transparent 100%);
+
+  --frame-w: 11px;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--flap-black);
+  color: var(--flap-white);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Concourse ambience: a dim hall behind the boards. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(115% 78% at 50% -12%, rgba(255, 180, 0, 0.07), transparent 62%),
+    radial-gradient(85% 62% at 88% 8%, rgba(182, 187, 194, 0.06), transparent 60%),
+    var(--flap-black);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, p, dl, dd, figure {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Board rows switch to display:block on narrow screens, which would otherwise
+   defeat the UA rule for [hidden]. Collapsed panels must stay collapsed. */
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 300;
+  padding: 0.6rem 1rem;
+  background: var(--amber);
+  color: #14100A;
+  font-family: var(--font-flap);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.18s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+.icon,
+.icon-arrow,
+.icon-ext {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  flex: none;
+}
+
+.icon-arrow,
+.icon-ext {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ==========================================================================
+   Steel: frames, rails, rivets
+   ========================================================================== */
+
+/* A board is a panel held in a steel frame on all four sides, riveted at the
+   corners and along the rails. The frame is the object; the flaps sit inside it. */
+.board-frame {
+  position: relative;
+  background: var(--flap-black);
+  background-clip: padding-box;
+  border: var(--frame-w) solid transparent;
+  border-image-source: var(--steel-plate);
+  border-image-slice: 8;
+  border-image-repeat: repeat;
+  padding: clamp(1rem, 2.4vw, 2rem);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 26px 60px -30px rgba(0, 0, 0, 0.95);
+}
+
+/* Rivets: seated in the steel, corners first, then repeating along the rails. */
+.board-frame::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--frame-w) * -1);
+  pointer-events: none;
+  z-index: 3;
+  background-image:
+    var(--rivet), var(--rivet), var(--rivet), var(--rivet),
+    var(--rivet), var(--rivet);
+  background-size: 7px 7px;
+  background-repeat:
+    no-repeat, no-repeat, no-repeat, no-repeat,
+    repeat-x, repeat-x;
+  background-position:
+    2px 2px,
+    calc(100% - 2px) 2px,
+    2px calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    58px 2px,
+    58px calc(100% - 2px);
+  /* Corner bolts fill their tile; rail bolts sit one per 112px of tile, so the
+     pitch is the tile and the bolt stays 7px. */
+  background-size: 7px 7px, 7px 7px, 7px 7px, 7px 7px, 112px 7px, 112px 7px;
+}
+
+/* Inner shadow line so the panel reads as recessed behind the frame. */
+.board-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: 0 3px 14px -4px rgba(0, 0, 0, 0.9) inset;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.concourse-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 0.85rem var(--gutter);
+  background: rgba(13, 13, 15, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(182, 187, 194, 0.18);
+}
+
+.wordmark {
+  display: flex;
+  gap: 2px;
+  text-decoration: none;
+  flex: none;
+}
+
+.wordmark-cell {
+  display: grid;
+  place-items: center;
+  width: 1.05rem;
+  padding: 0.25rem 0;
+  background: var(--flap-face);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1px;
+  font-family: var(--font-flap);
+  font-size: 0.95rem;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--flap-white);
+  position: relative;
+}
+
+.wordmark-cell::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--seam);
+}
+
+.wordmark-gap {
+  width: 0.4rem;
+}
+
+.concourse-nav {
+  margin-left: auto;
+}
+
+.concourse-nav ul {
+  display: flex;
+  gap: clamp(1rem, 2.6vw, 2.25rem);
+}
+
+.concourse-nav a {
+  display: grid;
+  gap: 1px;
+  text-decoration: none;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.18s var(--ease-out), color 0.18s var(--ease-out);
+}
+
+.nav-word {
+  font-family: var(--font-flap);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--flap-white);
+  line-height: 1.1;
+}
+
+.nav-gloss {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+  line-height: 1.1;
+}
+
+.concourse-nav a:hover,
+.concourse-nav a:focus-visible {
+  border-bottom-color: var(--amber);
+}
+
+.concourse-nav a:hover .nav-word,
+.concourse-nav a:focus-visible .nav-word {
+  color: var(--amber);
+}
+
+/* ==========================================================================
+   Amber action
+   ========================================================================== */
+
+.btn-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.1rem;
+  background: transparent;
+  border: 1px solid var(--amber);
+  border-radius: 2px;
+  color: var(--amber);
+  font-family: var(--font-flap);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.18s var(--ease-out), color 0.18s var(--ease-out);
+}
+
+.btn-amber:hover,
+.btn-amber:focus-visible {
+  background: var(--amber);
+  color: #14100A;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.6rem;
+  font-size: 1.2rem;
+  background: var(--amber);
+  color: #14100A;
+}
+
+.btn-lg:hover,
+.btn-lg:focus-visible {
+  background: #FFC633;
+  color: #14100A;
+}
+
+.header-cta {
+  flex: none;
+}
+
+/* ==========================================================================
+   Flap cells
+   ========================================================================== */
+
+.flap-line {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.flap {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 0.72em;
+  flex: none;
+  padding: 0.1em 0;
+  background: linear-gradient(180deg, #202024 0%, #202024 50%, #131316 50%, #131316 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  line-height: 1;
+  color: var(--flap-white);
+  overflow: hidden;
+  transform-origin: center top;
+}
+
+.flap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--seam);
+  z-index: 2;
+}
+
+/* A word space is still a flap, just an unprinted one. Empty cells past the end
+   of a row are designed too: the matrix runs to the edge of the panel. */
+.flap-space,
+.flap-ghost {
+  color: transparent;
+}
+
+.flap-ghost {
+  background: linear-gradient(180deg, #191A1D 0%, #191A1D 50%, #101013 50%, #101013 100%);
+  border-color: rgba(255, 255, 255, 0.045);
+}
+
+.flap-glyph {
+  display: block;
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+/* The leaf is hinged at its top edge and falls. It does not squash. */
+.flap.is-flipping {
+  perspective: 90px;
+}
+
+.flap.is-flipping .flap-glyph {
+  animation: flap-turn 110ms var(--ease-out) infinite;
+}
+
+@keyframes flap-turn {
+  0%   { transform: rotateX(0deg);   opacity: 1; }
+  55%  { transform: rotateX(-88deg); opacity: 0.35; }
+  56%  { transform: rotateX(88deg);  opacity: 0.35; }
+  100% { transform: rotateX(0deg);   opacity: 1; }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3.25rem) var(--gutter) 0;
+}
+
+.hero-board {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  align-items: stretch;
+}
+
+/* A steel mullion divides the two panels, the way a concourse board is built
+   from separate cases bolted into one frame. */
+.hero-board-col {
+  border-width: 0 0 0 var(--frame-w);
+  border-style: solid;
+  border-color: transparent;
+  border-image-source: var(--steel-plate);
+  border-image-slice: 8;
+  border-image-repeat: repeat;
+  padding-left: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+/* Grid items default to a min-content floor, which the fixed-width flap matrix
+   would push past on narrow screens. */
+.hero-headline-col,
+.hero-board-col {
+  min-width: 0;
+}
+
+/* The action settles on the bottom rail rather than floating mid-board. */
+.hero-headline-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-headline-col .hero-actions {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.flap-headline {
+  font-family: var(--font-flap);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  justify-items: stretch;
+}
+
+/* One panel, one cell size. A flap board has a single matrix; the name and the
+   thesis are rows in it, not a headline with a caption underneath. The floor is
+   set by the longest row fitting its panel, not by a comfortable reading size. */
+.flap-headline .flap-line,
+.flap-headline .flap-line-sub {
+  font-size: clamp(0.9rem, 5.4vw, 2.6rem);
+}
+
+/* The narrowest phones cannot carry a 16-cell row at the larger step. */
+@media (max-width: 359px) {
+  .flap-headline .flap-line,
+  .flap-headline .flap-line-sub {
+    font-size: 4.8vw;
+  }
+}
+
+/* Above the stacking breakpoint the headline holds roughly 43% of the width,
+   so the cell size is set against that panel, not the viewport. */
+@media (min-width: 1081px) {
+  .flap-headline .flap-line,
+  .flap-headline .flap-line-sub {
+    font-size: clamp(1.5rem, 2.9vw, 2.7rem);
+  }
+}
+
+.hero-copy {
+  max-width: 60ch;
+  font-size: clamp(1.02rem, 1.15vw, 1.15rem);
+  color: #D5D8DC;
+  margin-bottom: 1.9rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.hero-loc {
+  font-family: var(--font-flap);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+/* ==========================================================================
+   Board tables
+   ========================================================================== */
+
+.board-table {
+  font-variant-numeric: tabular-nums;
+}
+
+.board-table thead th {
+  padding: 0 0.75rem 0.6rem;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+  border-bottom: 1px solid rgba(182, 187, 194, 0.2);
+  white-space: nowrap;
+}
+
+.board-table tbody td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: middle;
+}
+
+.board-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column styling is scoped to tbody so the thead labels keep their own,
+   quieter voice rather than inheriting the flap face. */
+tbody .col-time,
+tbody .col-ref {
+  width: 1%;
+  white-space: nowrap;
+  font-family: var(--font-flap);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--flap-white);
+}
+
+tbody .col-dest {
+  font-family: var(--font-flap);
+  font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+tbody .col-scope {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.col-status,
+.col-time,
+.col-ref {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.col-status {
+  text-align: right;
+}
+
+/* Status lamps */
+.status {
+  display: inline-block;
+  padding: 0.24rem 0.6rem;
+  border: 1px solid rgba(182, 187, 194, 0.4);
+  border-radius: 2px;
+  font-family: var(--font-flap);
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.status-live {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.status-build {
+  border-color: var(--steel);
+  color: var(--flap-white);
+}
+
+/* Hero boards are quieter: they state the shape, the sections carry detail. */
+.board-table-hero thead th {
+  font-size: 0.64rem;
+  padding-bottom: 0.45rem;
+}
+
+.board-table-hero tbody .col-dest {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+}
+
+.board-table-hero tbody .col-time,
+.board-table-hero tbody .col-ref {
+  font-size: 1.02rem;
+  color: var(--steel);
+}
+
+.board-table-hero tbody td {
+  padding: 0.5rem 0.75rem;
+}
+
+.board-table-hero .status {
+  font-size: 0.78rem;
+  padding: 0.14rem 0.42rem;
+}
+
+/* The two hero boards: departures and arrivals, the thesis in one viewport. */
+.hero-boards {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.mini-board-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 180, 0, 0.35);
+}
+
+.mini-board-label b {
+  font-family: var(--font-flap);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.mini-board-label span {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+/* ==========================================================================
+   Status strip
+   ========================================================================== */
+
+.status-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.15rem;
+  padding: 1rem clamp(1rem, 2.4vw, 2rem);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(182, 187, 194, 0.14);
+  border-radius: 3px;
+}
+
+/* Board-voice fact rows: value and label on one line in the flap face,
+   divided by rules, the way a concourse service strip is set. */
+.status-facts {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.status-facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0 clamp(0.7rem, 1.5vw, 1.2rem);
+  border-left: 1px solid rgba(182, 187, 194, 0.22);
+  font-family: var(--font-flap);
+  font-weight: 700;
+  font-size: clamp(0.92rem, 0.95vw, 1.05rem);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.status-facts li:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.fact-value {
+  color: var(--amber);
+}
+
+.fact-label {
+  color: var(--steel);
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+  white-space: nowrap;
+  font-family: var(--font-flap);
+  font-weight: 700;
+  font-size: clamp(0.92rem, 0.95vw, 1.05rem);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--flap-white);
+}
+
+.lamp {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #35D06A;
+  box-shadow: 0 0 0 3px rgba(53, 208, 106, 0.16);
+  flex: none;
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.board-section,
+.service-section,
+.contact-section {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 6.5rem) var(--gutter) 0;
+}
+
+.section-head {
+  margin-bottom: 1.6rem;
+}
+
+.flap-heading {
+  font-family: var(--font-flap);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 4.4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.flap-heading .flap-line {
+  gap: 3px;
+}
+
+.section-sub {
+  max-width: 62ch;
+  font-size: 1rem;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Expandable rows
+   ========================================================================== */
+
+.row-btn {
+  display: grid;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.dest-main {
+  display: block;
+  font-family: var(--font-flap);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--flap-white);
+  transition: color 0.18s var(--ease-out);
+}
+
+.dest-sub {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+.board-row {
+  transition: background 0.18s var(--ease-out);
+}
+
+.board-row:hover,
+.board-row:focus-within {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.board-row:hover .dest-main,
+.board-row:focus-within .dest-main {
+  color: var(--amber);
+}
+
+.board-row.is-open {
+  background: rgba(255, 180, 0, 0.06);
+}
+
+.board-row.is-open .dest-main {
+  color: var(--amber);
+}
+
+.detail-row > td {
+  padding: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.detail-panel {
+  padding: 1.3rem clamp(0.9rem, 2vw, 1.6rem) 1.7rem;
+  max-width: 78ch;
+}
+
+.detail-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.detail-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.97rem;
+  color: #D5D8DC;
+  line-height: 1.6;
+}
+
+.detail-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--amber);
+}
+
+.case {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.case dt {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.case dd {
+  margin: 0 0 0.9rem;
+  font-size: 0.97rem;
+  color: #D5D8DC;
+  line-height: 1.6;
+}
+
+.case dd:last-of-type {
+  margin-bottom: 0;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.1rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--amber);
+  font-family: var(--font-flap);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  text-decoration: none;
+}
+
+.detail-link:hover,
+.detail-link:focus-visible {
+  color: #FFC633;
+  border-bottom-color: #FFC633;
+}
+
+/* ==========================================================================
+   Service info
+   ========================================================================== */
+
+.notice-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(182, 187, 194, 0.16);
+  border-radius: 3px;
+}
+
+.notice-copy {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.notice-copy p {
+  max-width: 70ch;
+  font-size: 1.02rem;
+  color: #D5D8DC;
+  line-height: 1.7;
+}
+
+.notice-meta {
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  padding-left: clamp(0rem, 2vw, 2rem);
+  border-left: 1px solid rgba(182, 187, 194, 0.18);
+}
+
+.notice-meta dt {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+.notice-meta dd {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-flap);
+  font-size: 1.12rem;
+  letter-spacing: 0.03em;
+  color: var(--flap-white);
+  line-height: 1.35;
+}
+
+.notice-meta dd:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact-section {
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.contact-board {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2.5rem);
+}
+
+.contact-lead {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+  margin-bottom: 1.5rem;
+}
+
+.contact-email {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-flap);
+  font-size: clamp(1.05rem, 3.6vw, 2.9rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* The address breaks at the @ as whole units, never mid-glyph. */
+.flap-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 7px;
+}
+
+.contact-email:hover .flap,
+.contact-email:focus-visible .flap {
+  color: var(--amber);
+  border-color: rgba(255, 180, 0, 0.45);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: 2.25rem;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-flap);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter) 2.5rem;
+  border-top: 1px solid rgba(182, 187, 194, 0.16);
+  font-family: var(--font-flap);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--steel);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Below this the four facts no longer share a baseline with the lamp, so the
+   break is designed: the lamp takes its own ruled row instead of orphaning. */
+@media (max-width: 1279px) {
+  .system-status {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(182, 187, 194, 0.14);
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-board-col {
+    border-width: var(--frame-w) 0 0;
+    padding-left: 0;
+    padding-top: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .notice-board {
+    grid-template-columns: 1fr;
+  }
+
+  .notice-meta {
+    padding-left: 0;
+    padding-top: 1.5rem;
+    border-left: none;
+    border-top: 1px solid rgba(182, 187, 194, 0.18);
+  }
+}
+
+@media (max-width: 860px) {
+  .concourse-header {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    padding: 0.75rem var(--gutter);
+  }
+
+  .concourse-nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    border-top: 1px solid rgba(182, 187, 194, 0.14);
+    padding-top: 0.6rem;
+  }
+
+  .concourse-nav ul {
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .header-cta {
+    margin-left: auto;
+  }
+
+  .nav-gloss {
+    display: none;
+  }
+
+  .status-strip {
+    gap: 1rem;
+  }
+
+  .system-status {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(182, 187, 194, 0.14);
+  }
+}
+
+/* Boards collapse to stacked records on narrow screens: columns never reflow
+   mid-row, they restack as labeled fields the way a platform sign does. */
+@media (max-width: 720px) {
+  .board-table-full,
+  .board-table-full thead,
+  .board-table-full tbody,
+  .board-table-full tr,
+  .board-table-full td {
+    display: block;
+    width: 100%;
+  }
+
+  .board-table-full thead {
+    display: none;
+  }
+
+  .board-table-full tbody tr.board-row {
+    position: relative;
+    padding: 1rem 0.25rem 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .board-table-full tbody td {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .board-table-full .col-time,
+  .board-table-full .col-ref {
+    font-size: 1rem;
+    color: var(--steel-dark);
+    letter-spacing: 0.14em;
+    margin-bottom: 0.3rem;
+  }
+
+  .board-table-full .col-scope {
+    margin-top: 0.5rem;
+    font-size: 0.86rem;
+  }
+
+  .board-table-full .col-status {
+    text-align: left;
+    margin-top: 0.6rem;
+  }
+
+  .board-table-full .detail-row {
+    padding: 0;
+  }
+
+  .detail-panel {
+    padding: 1.1rem 0.25rem 1.4rem;
+  }
+
+  .board-table-hero .col-scope {
+    display: none;
+  }
+
+  /* The hero boards keep their table shape on small screens but stop
+     negotiating for width: fixed tracks, and the role wraps inside its cell. */
+  .board-table-hero {
+    table-layout: fixed;
+  }
+
+  .board-table-hero .col-time,
+  .board-table-hero .col-ref {
+    width: 3.3rem;
+  }
+
+  .board-table-hero tbody .col-time,
+  .board-table-hero tbody .col-ref {
+    font-size: 0.88rem;
+  }
+
+  .board-table-hero .col-status {
+    width: 5rem;
+    white-space: normal;
+  }
+
+  .board-table-hero tbody .col-dest {
+    font-size: 0.95rem;
+  }
+
+  .board-table-hero thead th,
+  .board-table-hero tbody td {
+    padding: 0.45rem 0.3rem;
+  }
+
+  .board-table-hero .status {
+    font-size: 0.68rem;
+    padding: 0.1rem 0.28rem;
+    letter-spacing: 0.06em;
+  }
+
+  .mini-board-label {
+    flex-wrap: wrap;
+  }
+
+  .hero-actions {
+    gap: 1rem;
+  }
+
+  /* Body copy sits under the board, never level with it. */
+  .hero-copy {
+    font-size: 0.94rem;
+  }
+
+  .contact-email {
+    font-size: clamp(0.82rem, 4.6vw, 1.4rem);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-facts {
+    gap: 1rem 1.5rem;
+  }
+
+  .fact-value {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion: the board sets instantly, no flapping.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .flap.is-flipping .flap-glyph {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

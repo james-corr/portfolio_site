@@ -75,8 +75,10 @@ a{color:inherit}
 .hero .bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem clamp(2.5rem,5vw,4.5rem);
   align-items:end;margin-top:clamp(1.8rem,5vw,3.4rem)}
 .hero .bottom p{margin:0;font-size:clamp(1.02rem,1.35vw,1.22rem);line-height:1.55}
-.acts{display:flex;flex-wrap:wrap;gap:.75rem;justify-self:end}
-@media(max-width:760px){.hero .bottom{grid-template-columns:1fr;align-items:start}.acts{justify-self:start}}
+.contact{display:flex;flex-direction:column;align-items:flex-end;gap:.9rem;justify-self:end}
+.avatar{width:80px;height:80px;border-radius:50%;object-fit:cover;flex:none;border:3px solid var(--yellow)}
+.acts{display:flex;flex-wrap:wrap;gap:.75rem}
+@media(max-width:760px){.hero .bottom{grid-template-columns:1fr;align-items:start}.contact{align-items:flex-start}}
 .cta{display:inline-flex;align-items:center;text-decoration:none;background:var(--yellow);color:var(--ink);
   padding:1rem 1.6rem;font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.15rem;
   white-space:nowrap;border:3px solid var(--yellow)}
@@ -104,11 +106,13 @@ a{color:inherit}
   letter-spacing:-.035em;font-size:clamp(1.6rem,3.4vw,2.9rem);line-height:.95}
 
 /* ---------- bio ---------- */
-.bio{columns:2;column-gap:clamp(2rem,5vw,4.5rem);max-width:104ch}
-@media(max-width:860px){.bio{columns:1}}
-.bio p{margin:0 0 1.35rem;break-inside:avoid;font-size:clamp(1.05rem,1.3vw,1.19rem);line-height:1.6}
-.bio p:first-child::first-letter{font-family:Bricolage,sans-serif;font-weight:800;float:left;
+.bio{max-width:104ch}
+.bio p{margin:0 0 1.35rem;font-size:clamp(1.05rem,1.3vw,1.19rem);line-height:1.6}
+.bio p:first-child::first-letter,.bio-pair p:last-child::first-letter{font-family:Bricolage,sans-serif;font-weight:800;float:left;
   font-size:4.15em;line-height:.76;padding:.06em .1em 0 0;color:var(--ultra)}
+.bio-pair{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2rem,5vw,4.5rem)}
+.bio-pair p{margin:0}
+@media(max-width:860px){.bio-pair{grid-template-columns:1fr;row-gap:1.35rem}}
 
 /* ---------- career bus ---------- */
 .bus{position:relative}
@@ -202,6 +206,8 @@ a{color:inherit}
 .shot img{display:block;width:100%;height:auto;border:2px solid var(--ink)}
 .shot figcaption{margin-top:.7rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.76rem;
   letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.shot-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.6rem,1.4vw,1rem)}
+@media(max-width:560px){.shot-pair{grid-template-columns:1fr}}
 /* supply-later placeholder */
 .ph{aspect-ratio:24/7;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
   border:2px dashed var(--pbg);color:var(--pbg);text-align:center;padding:1.5rem;
@@ -312,15 +318,18 @@ body{padding-bottom:var(--rail)}
         <span class="avail"><i class="dot"></i>Actively interviewing</span>
         <span>Wilmington, DE. Remote.</span>
       </div>
-      <h1>Revenue programs and the systems <em>that run them.</em></h1>
+      <h1>Revenue programs, client relationships, and the systems <em>that scale them.</em></h1>
       <div class="bottom">
-        <p>Twelve years building revenue programs in B2B SaaS, consulting, and analytics. I ran partnerships at Freshpaint from zero to a 50+ partner ecosystem, then started building the production software that function needed.</p>
-        <div class="acts">
-          <a class="cta" href="mailto:James.corr1990@gmail.com">Get in touch</a>
-          <a class="cta sec" href="https://www.linkedin.com/in/jamescorr1/">LinkedIn</a>
+        <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $5.5M+ in closed revenue. I then taught myself to build the production software that the team and the business needed. I've shipped four AI/GTM engineering tools, numerous agents, and countless skills, burning ~425M tokens in the process, now used daily to save time, increase revenue, and flag risk across customers.</p>
+        <div class="contact">
+          <img class="avatar" src="assets/james-avatar.jpg" alt="Portrait of James Corr" width="80" height="80" loading="eager">
+          <div class="acts">
+            <a class="cta" href="mailto:James.corr1990@gmail.com">Get in touch</a>
+            <a class="cta sec" href="https://www.linkedin.com/in/jamescorr1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
       </div>
-      <p class="openline">Open to partnerships, GTM engineering, and product roles.</p>
+      <p class="openline">Actively looking for roles in Partnerships, GTM/GTM Engineering, and Product.</p>
     </div>
   </section>
 
@@ -331,7 +340,7 @@ body{padding-bottom:var(--rail)}
       <div class="stmts">
         <div class="row"><p class="stmt"><span class="n u">$9.5M+</span><br>in partner-sourced pipeline, and $13.5M+ influenced.</p></div>
         <div class="row r"><p class="stmt"><span class="n f">~29%</span><br>of total company pipeline came from partners.</p></div>
-        <div class="row"><p class="stmt"><span class="n u">50+</span><br>partners in an ecosystem that started at zero.</p></div>
+        <div class="row"><p class="stmt"><span class="n u">50+</span><br>partners in an ecosystem I built solo, then grew into a team of three.</p></div>
         <div class="row r"><p class="stmt"><span class="n f">114%</span><br>net revenue retention across a 60+ account book.</p></div>
       </div>
     </div>
@@ -340,11 +349,13 @@ body{padding-bottom:var(--rail)}
   <!-- BIO -->
   <section class="panel p-yellow" aria-labelledby="h-about">
     <div class="in">
-      <h2 class="eyebrowless" id="h-about">Two halves of the same instinct.</h2>
+      <h2 class="eyebrowless" id="h-about">Where relationships meet the systems that scale them.</h2>
       <div class="bio">
-        <p>Twelve years across B2B SaaS, consulting, and analytics. As Head of Partnerships at Freshpaint I architected the partner program from zero: tiers, referral agreements, playbooks, and enablement across a 50+ partner ecosystem of agencies and technology partners, generating $9.5M+ in partner-sourced pipeline. None of it happened in a silo. It meant staying in lockstep with Sales, Marketing, Customer Success, Legal, and Finance so partner activity showed up in real pipeline, not just a slide.</p>
-        <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output automates meeting action items into a task board through a Slack approve or deny flow, and went into daily use by teammates. Postgame turns a recorded customer call into a structured renewal-health read within 30 seconds, so early warning signs stop evaporating the moment the call ends. Production systems that shipped and stayed running, not demos.</p>
-        <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+        <p>The revenue side has always been about protecting what's already been won while building what's next. I've carried retention above 88% across every client-facing leadership role I've held, peaking at 114% net revenue retention on Freshpaint's book, while pushing partner-sourced pipeline to 29% of total company pipeline and $13.5M+ influenced. Underneath the different titles (Team Lead, Associate Director, Head of Partnerships), the job was always the same: the number only holds if the relationship underneath it does.</p>
+        <div class="bio-pair">
+          <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output is the collection layer; it pulls action items and sentiment signals straight out of the meeting, runs them through a Slack human-in-the-loop check, and writes them into the task board and the CRM, so capturing the data that matters stops being a chore. Postgame sits a layer up: an aggregation and visualization tool that pulls signal from wherever it already lives — Output's sentiment feed inside the CRM, call intelligence platforms like Gong — and turns it into one renewal-health read leadership can act on. Production systems that shipped and stayed running, not demos.</p>
+          <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -363,10 +374,11 @@ body{padding-bottom:var(--rail)}
 
           <p class="rdate">Jan 2024-Jul 2026</p>
           <ul>
-            <li>Architected the partner program from <b>0 to 3 team members</b> at a Series B startup, establishing partner tiers, referral agreements, playbooks, and enablement across 50+ digital agency, legal, compliance, and technology partners.</li>
+            <li>Architected the partner program from <b>0 to 3 team members</b> at a startup that grew from Series A to Series B during my tenure, establishing partner tiers, referral agreements, playbooks, and enablement across 50+ digital agency, legal, compliance, and technology partners.</li>
             <li>Generated <b>$9.5M+ in partner-sourced pipeline</b> and $13.5M+ partner-influenced, roughly 29% of total company pipeline, resulting in $5.5M+ closed revenue.</li>
             <li>Designed and launched GTM motions with strategic partners: co-marketing, demand generation, in-person events, executive alignment, and account mapping.</li>
             <li>Hit partner pipeline quota in <b>8 of 9 quarters</b> and conducted 100+ discovery calls.</li>
+            <li>Shipped two AI-powered internal tools alongside the partner program (Postgame and ClienTell), both still in production today.</li>
           </ul>
           <div class="dims">
             <div class="dim"><span class="v">$9.5M+</span><span class="l">Partner-sourced pipeline</span></div>
@@ -378,7 +390,7 @@ body{padding-bottom:var(--rail)}
 
         <article class="role">
           <div class="rhead">
-            <h3>Account Manager</h3>
+            <h3>Account Management Lead</h3>
             <span class="meta">Freshpaint</span>
           </div>
 
@@ -402,16 +414,24 @@ body{padding-bottom:var(--rail)}
 
           <p class="rdate">Jul 2022-Jul 2023</p>
           <ul>
-            <li>Managed <b>four Team Leads</b> running cross-functional teams of analysts, developers, and analytics strategists across a ~$5M book of business with 91%+ client retention.</li>
-            <li>Primary architect of the division's standardized <b>Measurement Strategy process</b>, rolled out across 40 to 50 clients and every Team Lead.</li>
+            <li>Managed <b>four Team Leads & Sr. Team Leads</b> running cross-functional teams of analysts, developers, and analytics strategists across a ~$5M book of business with 91%+ client retention.</li>
+            <li>Primary architect of the division's standardized <b>Measurement Strategy process</b>, rolled out across 50+ clients and every Team Lead.</li>
             <li>Central to the division's shift from a pure measurement shop to Digital Measurement Solutions, redefining the service offering and its positioning.</li>
           </ul>
           <div class="dims">
             <div class="dim"><span class="v">~$5M</span><span class="l">Book of business</span></div>
             <div class="dim"><span class="v">4</span><span class="l">Team Leads managed</span></div>
             <div class="dim"><span class="v">91%+</span><span class="l">Client retention</span></div>
-            <div class="dim"><span class="v">40 to 50</span><span class="l">Clients on the rollout</span></div>
           </div>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Senior Analytics Team Lead</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
+
+          <p class="rdate">Mar 2020-Jul 2022</p>
         </article>
 
         <article class="role">
@@ -420,15 +440,34 @@ body{padding-bottom:var(--rail)}
             <span class="meta">Seer Interactive</span>
           </div>
 
-          <p class="rdate">Jan 2017-Jul 2022</p>
-          <ul>
-            <li>Managed a team of Account Managers on analytics operations and client strategy across a multi-account portfolio, holding <b>88%+ retention</b>.</li>
-            <li>Supported Team Leads who owned direct client relationships, stepping in for high-stakes situations, executive escalations, and complex implementations.</li>
-            <li>Provided senior oversight on tracking strategies, KPI frameworks, and automated reporting structures.</li>
-          </ul>
-          <div class="dims">
-            <div class="dim"><span class="v">88%+</span><span class="l">Portfolio retention</span></div>
+          <p class="rdate">May 2017-Mar 2020</p>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Senior Analytics Account Manager</h3>
+            <span class="meta">Seer Interactive</span>
           </div>
+
+          <p class="rdate">Jan 2017-Apr 2017</p>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Analytics Account Manager</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
+
+          <p class="rdate">Jan 2016-Jan 2017</p>
+        </article>
+
+        <article class="role">
+          <div class="rhead">
+            <h3>Senior Analytics Associate</h3>
+            <span class="meta">Seer Interactive</span>
+          </div>
+
+          <p class="rdate">Jun 2015-Dec 2015</p>
         </article>
 
         <article class="role">
@@ -437,14 +476,7 @@ body{padding-bottom:var(--rail)}
             <span class="meta">Seer Interactive</span>
           </div>
 
-          <p class="rdate">Sep 2014-Jan 2017</p>
-          <ul>
-            <li>Progressed through individual contributor roles into Senior Account Manager, building expertise in web analytics implementation, tag management, and reporting.</li>
-            <li>Built a fully custom reporting suite on the Google Analytics API through a Sheets add-on, structuring raw API data into an automated reporting system.</li>
-          </ul>
-          <div class="dims">
-            <div class="dim"><span class="v">4</span><span class="l">Roles progressed through</span></div>
-          </div>
+          <p class="rdate">Sep 2014-Jun 2015</p>
         </article>
 
       </div>
@@ -452,11 +484,10 @@ body{padding-bottom:var(--rail)}
   </section>
 
   <!-- SOFTWARE STATEMENT -->
-  <section class="panel p-ultra" aria-labelledby="h-built">
+  <section class="panel p-ultra">
     <div class="in">
-      <h2 class="eyebrowless" id="h-built">Then I built what the function needed.</h2>
       <div class="stmts">
-        <div class="row"><p class="stmt"><span class="n y">6</span><br>products shipped end to end, four on the Claude API.</p></div>
+        <div class="row"><p class="stmt"><span class="n y">4</span><br>products shipped end to end, four on the Claude API.</p></div>
         <div class="row r"><p class="stmt"><span class="n y">425M+</span><br>LLM tokens run across builds, agents, and daily work.</p></div>
       </div>
     </div>
@@ -469,13 +500,13 @@ body{padding-bottom:var(--rail)}
         <div>
           <h3 id="w-output">Output</h3>
           <p class="wtag">Multi-user SaaS. Live.</p>
-          <a class="wlink" href="https://getoutput.app">getoutput.app</a>
+          <a class="wlink" href="https://getoutput.app" target="_blank" rel="noopener noreferrer">getoutput.app</a>
         </div>
         <dl class="spec">
-          <dt>Problem</dt><dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call, a small task that quietly ate real time every day.</dd>
-          <dt>Decision</dt><dd>Built a <b>human-in-the-loop Slack approve or deny flow</b> instead of writing tasks straight into the board, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
-          <dt>Outcome</dt><dd>Live multi-user SaaS that went into daily use by teammates, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Supabase, Claude API, Fly.io</dd>
+          <dt>Problem</dt><dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call — and softer signals, like customer sentiment and renewal risk, never got captured anywhere at all.</dd>
+          <dt>Decision</dt><dd>Built a <b>human-in-the-loop Slack approve or deny flow</b> that captures both action items and sentiment signals straight out of the meeting, scored by Claude Haiku, instead of writing either straight into the board or the CRM, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
+          <dt>Outcome</dt><dd>Live multi-user SaaS in daily use by teammates: confirmed action items write to the task board, confirmed sentiment writes to the CRM, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Supabase, Claude Haiku, Fly.io</dd>
         </dl>
       </div>
       <figure class="shot bleed-r">
@@ -490,20 +521,18 @@ body{padding-bottom:var(--rail)}
       <div class="wtop">
         <div>
           <h3 id="w-postgame">Postgame</h3>
-          <p class="wtag">CS command center. Built at Freshpaint, still running.</p>
+          <p class="wtag">CS command center. Built during my time at Freshpaint, still running.</p>
         </div>
         <dl class="spec">
-          <dt>Problem</dt><dd>CSMs were surfacing renewal risk on customer calls, then losing it the moment the call ended.</dd>
-          <dt>Decision</dt><dd>Human in the loop by design: the model drafts the read on sentiment and renewal confidence, the CSM confirms it in a Slack modal, so <b>nothing fabricated reaches the CRM</b>.</dd>
-          <dt>Outcome</dt><dd>Every confirmed answer writes back onto the call's CRM record and rolls up into a leadership readout scoring renewal risk across every account inside its 90-day window.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Postgres, Claude Haiku, Fly.io</dd>
+          <dt>Problem</dt><dd>Renewal-risk signal was scattered — sentiment sitting in the CRM, call recordings and scores sitting in call intelligence tools like Gong — so leadership had to manually stitch together account health before every forecast.</dd>
+          <dt>Decision</dt><dd>Built an <b>aggregation and visualization layer</b> instead of another point tool: it pulls signal from wherever it already lives, Output's sentiment feed inside the CRM, call intelligence platforms like Gong, and feeds it to Claude Sonnet, which evaluates sentiment across the whole book and writes the daily narrative.</dd>
+          <dt>Outcome</dt><dd>A daily leadership briefing scoring renewal risk across every account inside its 90-day window, combined Gong-plus-human sentiment, and the specific accounts that need attention that week, built from signal that used to live in three different places.</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Postgres, Claude Sonnet, Fly.io</dd>
         </dl>
       </div>
       <figure class="shot bleed-l">
-        <div class="plate">
-          <div class="ph"><strong>Screenshot to be supplied</strong><span>Internal tool, redaction needed</span></div>
-        </div>
-        <figcaption>Placeholder. Nothing is mocked up here.</figcaption>
+        <div class="plate"><img src="assets/postgame_UI.png" alt="The Postgame daily briefing, showing ARR up for renewal, accounts flagged for leadership, and combined Gong-plus-human sentiment scoring across the book." loading="lazy" width="1416" height="926"></div>
+        <figcaption>Postgame daily briefing, internal tool</figcaption>
       </figure>
     </div>
   </section>
@@ -513,8 +542,8 @@ body{padding-bottom:var(--rail)}
       <div class="wtop">
         <div>
           <h3 id="w-clientell">ClienTell</h3>
-          <p class="wtag">Research automation. Live.</p>
-          <a class="wlink" href="https://clientell.fly.dev">clientell.fly.dev</a>
+          <p class="wtag">Research automation. Built during my time at Freshpaint, still running.</p>
+          <a class="wlink" href="https://clientell.fly.dev" target="_blank" rel="noopener noreferrer">clientell.fly.dev</a>
         </div>
         <dl class="spec">
           <dt>Problem</dt><dd>Pre-call research meant manually digging through a company's website to figure out who they already work with.</dd>
@@ -524,8 +553,13 @@ body{padding-bottom:var(--rail)}
         </dl>
       </div>
       <figure class="shot bleed-r">
-        <div class="plate"><img src="assets/clientell.png" alt="The ClienTell crawler interface, showing the URL field, scan depth toggle, and max pages control." loading="lazy" width="1280" height="660"></div>
-        <figcaption>clientell.fly.dev, captured live</figcaption>
+        <div class="plate">
+          <div class="shot-pair">
+            <img src="assets/ClienTell_homepage.png" alt="The ClienTell homepage, showing the URL field, smart scan toggle, and max pages control." loading="lazy" width="956" height="930">
+            <img src="assets/ClienTell_Report.png" alt="A ClienTell crawl report listing companies found with relationship, confidence, and vertical columns." loading="lazy" width="944" height="929">
+          </div>
+        </div>
+        <figcaption>clientell.fly.dev, input and results, captured live</figcaption>
       </figure>
     </div>
   </section>
@@ -535,43 +569,18 @@ body{padding-bottom:var(--rail)}
       <div class="wtop">
         <div>
           <h3 id="w-brief">Daily Brief Agent</h3>
-          <p class="wtag">Enterprise agent. Built at Freshpaint, still running.</p>
+          <p class="wtag">Enterprise agent. Built during my time at Freshpaint, still running.</p>
         </div>
         <dl class="spec">
           <dt>Problem</dt><dd>Everyone started the day cold, with no context on the accounts and partners already sitting on the calendar.</dd>
           <dt>Decision</dt><dd>Built on an enterprise agent platform rather than a one-off script, pulling from calendar, knowledge base, and CRM sources so the brief stays current as those systems change.</dd>
           <dt>Outcome</dt><dd>A personalized morning brief landed for <b>every user on the team</b> before their first meeting, cutting manual pre-meeting prep.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Glean, Google Calendar, Notion, HubSpot</dd>
+          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Glean, Google Calendar, Slack, Notion, HubSpot, Gmail</dd>
         </dl>
       </div>
       <figure class="shot bleed-l">
-        <div class="plate">
-          <div class="ph"><strong>Screenshot to be supplied</strong><span>Internal tool, redaction needed</span></div>
-        </div>
-        <figcaption>Placeholder. Nothing is mocked up here.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="wpanel p-ink" aria-labelledby="w-focus">
-    <div class="in">
-      <div class="wtop">
-        <div>
-          <h3 id="w-focus">Focus Quest</h3>
-          <p class="wtag">Productivity tool.</p>
-        </div>
-        <dl class="spec">
-          <dt>Problem</dt><dd>Most Pomodoro timers either nag constantly or get abandoned after a week.</dd>
-          <dt>Decision</dt><dd>Built points, streaks, and badges on top of the timer instead of a bare countdown, with wall-clock accurate timing that survives the tab going to sleep.</dd>
-          <dt>Outcome</dt><dd>A calm, distraction-free daily-use tool with session history to track focus habits over time.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Next.js 15, TypeScript, Supabase, Docker, Fly.io</dd>
-        </dl>
-      </div>
-      <figure class="shot bleed-r">
-        <div class="plate">
-          <div class="ph"><strong>Screenshot to be supplied</strong><span>Host URL needs confirming</span></div>
-        </div>
-        <figcaption>Placeholder. focusquest.fly.dev does not currently resolve.</figcaption>
+        <div class="plate"><img src="assets/daily-brief-agent.png" alt="Diagram of the Daily Brief Agent pulling from Google Calendar, Slack, Notion, HubSpot, Gmail, and the web, then synthesizing a single Slack message." loading="lazy" width="1536" height="1024"></div>
+        <figcaption>How the Daily Brief Agent works, source diagram</figcaption>
       </figure>
     </div>
   </section>
@@ -582,9 +591,9 @@ body{padding-bottom:var(--rail)}
       <h2 class="eyebrowless" id="h-contact">Actively interviewing.</h2>
       <a class="mail" href="mailto:James.corr1990@gmail.com">James.corr1990@gmail.com</a>
       <ul class="links">
-        <li><a href="https://www.linkedin.com/in/jamescorr1/">LinkedIn</a></li>
-        <li><a href="https://getoutput.app">GetOutput.app</a></li>
-        <li><a href="https://clientell.fly.dev">clientell.fly.dev</a></li>
+        <li><a href="https://www.linkedin.com/in/jamescorr1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://getoutput.app" target="_blank" rel="noopener noreferrer">GetOutput.app</a></li>
+        <li><a href="https://clientell.fly.dev" target="_blank" rel="noopener noreferrer">clientell.fly.dev</a></li>
       </ul>
 
       <div class="tb">
@@ -592,7 +601,7 @@ body{padding-bottom:var(--rail)}
           <h3>Contact</h3>
           <a class="mailsm" href="mailto:James.corr1990@gmail.com">James.corr1990@gmail.com</a>
           <ul style="margin-top:.8rem">
-            <li><a href="https://www.linkedin.com/in/jamescorr1/">linkedin.com/in/jamescorr1/</a></li>
+            <li><a href="https://www.linkedin.com/in/jamescorr1/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jamescorr1/</a></li>
             <li>Wilmington, DE. Remote.</li>
           </ul>
         </div>
@@ -608,14 +617,14 @@ body{padding-bottom:var(--rail)}
           <h3>Run to date</h3>
           <ul>
             <li>425M+ LLM tokens run, mostly Claude</li>
-            <li>6 products shipped end to end, 4 on the Claude API</li>
+            <li>4 products shipped end to end, 4 on the Claude API</li>
             <li>114% NRR at Freshpaint. 91%+ retention at Seer.</li>
           </ul>
         </div>
       </div>
       <div class="tbfoot">
         <span>James Corr. Wilmington, DE. Remote.</span>
-        <span class="y">Open to partnerships, GTM engineering, and product roles.</span>
+        <span class="y">Actively looking for roles in Partnerships, GTM/GTM Engineering, and Product.</span>
       </div>
     </div>
   </section>

@@ -1,10 +1,12 @@
 # James Corr | Portfolio
 
-Static, hand-written HTML/CSS/JS. No framework, no build step.
+Static, hand-written HTML. No framework, no build step. All CSS and JS are inline in
+`index.html` — there is no separate stylesheet or script file.
 
-Visual world: **Split-Flap Concourse**. A career read as a rail departure board.
-DEPARTURES is the career, ARRIVALS is what has shipped. The previous "Growth Signal"
-design is preserved in full at `../portfolio-original/`.
+Visual world: **Monograph** — ultramarine (`#1E2BD6`), chrome yellow (`#FFCE00`), ink
+(`#111015`), and chalk (`#F3F0E7`), set in Bricolage Grotesque and Faustina. Two previous
+designs are preserved in full: "Split-Flap Concourse" at `../portfolio-original/`, and
+earlier explorations in `../z_archive/`.
 
 ## Local dev
 
@@ -17,38 +19,24 @@ or any static file server pointed at this directory. Then open the printed local
 ## Structure
 
 ```
-index.html   all markup. The direction contract is the HTML comment at the top of <body>.
-styles.css   design tokens (split-flap palette), board frames, layout, responsive
-main.js      the flap engine (character settling) and expandable board rows
-fonts/       self-hosted woff2: Barlow Condensed 600, Barlow 400/500/600 (latin subset)
-assets/      favicon.svg, og-image.png
+index.html   all markup, styles, and script, inline
+fonts/       self-hosted woff2: Bricolage Grotesque 600/800, Faustina 400/600
+assets/      favicon.svg, og-image.png, and the images referenced in the page
 vercel.json  cache headers for fonts/ and assets/
 ```
 
 ## Deploy
 
-```
-npx vercel --prod
-```
-
-Run from this directory. Deployment is James's call, not automatic.
-
-Before deploying:
-
-- Confirm which Vercel subdomain was actually secured and update `<link rel="canonical">`,
-  `og:url`, `og:image`, and `twitter:image` in `index.html`.
-- **`assets/og-image.png` is still the old design's share image.** Replace it before
-  sharing the link anywhere that renders a preview card.
+Live at `https://jamescorr.com`, deployed on Vercel with Git integration — every push to
+`main` on `github.com/james-corr/portfolio_site` auto-deploys. No manual `vercel --prod`
+needed day to day; use it only to test a deploy before pushing.
 
 ## Content source of truth
 
-Every factual claim on the page traces back to `../exp.md`. If experience details change,
-update `exp.md` first, then re-sync the copy here by hand.
+Page copy lives directly in `index.html`; there is no separate content file to sync from.
 
-Durable product context lives in `../PRODUCT.md`; the recorded visual system lives in `DESIGN.md`.
-
-## Restoring the previous design
+## Restoring a previous design
 
 ```
-cp -R ../portfolio-original/. .
+cp -R ../portfolio-original/. .   # Split-Flap Concourse
 ```

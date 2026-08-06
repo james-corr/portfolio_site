@@ -2,3 +2,5 @@
 
 # raw camera originals — crop to assets/james-avatar.jpg instead
 assets/james corr-*.jpg
+.vercel
+.env*

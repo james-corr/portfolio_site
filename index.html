@@ -135,6 +135,15 @@ a{color:inherit}
 .bio-pair p{margin:0}
 @media(max-width:860px){.bio-pair{grid-template-columns:1fr;row-gap:1.35rem}}
 
+.bio-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+@media(max-width:900px){.bio-cols{grid-template-columns:1fr}}
+.quotes{display:flex;flex-direction:column;gap:1.3rem}
+.quote{background:var(--ultra);color:var(--chalk);padding:1.5rem 1.6rem}
+.quote p{margin:0 0 1.1rem;font-size:1.05rem;line-height:1.55;font-weight:600;letter-spacing:-.005em}
+.quote cite{display:block;font-style:normal;font-family:Bricolage,sans-serif;font-weight:800;font-size:.98rem;letter-spacing:-.01em;color:var(--chalk)}
+.quote cite span{display:block;margin-top:.25rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--yellow)}
+
 /* ---------- career bus ---------- */
 .bus{position:relative}
 .bus::before{content:"";position:absolute;left:8px;top:10px;bottom:1.5rem;width:3px;background:currentColor;opacity:.28}
@@ -376,20 +385,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="panel p-yellow" aria-labelledby="h-about">
     <div class="in">
       <h2 class="eyebrowless" id="h-about">Where relationships meet the systems that scale them.</h2>
-      <div class="bio">
-        <p>The revenue side has always been about protecting what's already been won while building what's next. I've carried retention above 88% across every client-facing leadership role I've held, peaking at 114% net revenue retention on Freshpaint's book, while pushing partner-sourced pipeline to 29% of total company pipeline and $13.5M+ influenced. Underneath the different titles (Team Lead, Associate Director, Head of Partnerships), the job was always the same: the number only holds if the relationship underneath it does.</p>
-        <div class="bio-pair">
-          <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output is the collection layer; it pulls action items and sentiment signals straight out of the meeting, runs them through a Slack human-in-the-loop check, and writes them into the task board and the CRM, so capturing the data that matters stops being a chore. Postgame sits a layer up: an aggregation and visualization tool that pulls signal from wherever it already lives — Output's sentiment feed inside the CRM, call intelligence platforms like Gong — and turns it into one renewal-health read leadership can act on. Production systems that shipped and stayed running, not demos.</p>
-          <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+      <div class="bio-cols">
+        <div class="bio">
+          <p>The revenue side has always been about protecting what's already been won while building what's next. I've carried retention above 88% across every client-facing leadership role I've held, peaking at 114% net revenue retention on Freshpaint's book, while pushing partner-sourced pipeline to 29% of total company pipeline and $13.5M+ influenced. Underneath the different titles (Team Lead, Associate Director, Head of Partnerships), the job was always the same: the number only holds if the relationship underneath it does.</p>
+          <div class="bio-pair">
+            <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output is the collection layer; it pulls action items and sentiment signals straight out of the meeting, runs them through a Slack human-in-the-loop check, and writes them into the task board and the CRM, so capturing the data that matters stops being a chore. Postgame sits a layer up: an aggregation and visualization tool that pulls signal from wherever it already lives — Output's sentiment feed inside the CRM, call intelligence platforms like Gong — and turns it into one renewal-health read leadership can act on. Production systems that shipped and stayed running, not demos.</p>
+            <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+          </div>
+        </div>
+        <div class="quotes">
+          <blockquote class="quote">
+            <p>&ldquo;He has a rare ability to make complicated topics, particularly analytics and measurement, clear and actionable for a wide range of audiences. &hellip; I recommend James without reservation.&rdquo;</p>
+            <cite>Ray Mina<span>CEO, Freshpaint &middot; Direct manager &middot; Aug 2026</span></cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>&ldquo;James has a deep technical understanding and was great at providing guidance, setting clear goals, and keeping our team focused.&rdquo;</p>
+            <cite>Joshua Jacobsen<span>Sr. Partner Manager, Freshpaint &middot; Direct report &middot; Aug 2026</span></cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>&ldquo;He was instrumental in bringing the Invoca-Freshpaint partnership to life. We also worked on a bunch of joint webinars, where he somehow made HIPAA compliance sound exciting to healthcare marketers.&rdquo;</p>
+            <cite>Tom Phillips<span>Sr. Product Marketing Manager, Invoca &middot; Partner &middot; Jul 2026</span></cite>
+          </blockquote>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CAREER -->
-  <section class="panel p-ink" aria-labelledby="h-career">
+  <section class="panel p-ink" aria-label="Career history">
     <div class="in">
-      <h2 class="eyebrowless" id="h-career">Twelve years, one spine.</h2>
       <div class="bus">
 
         <article class="role">

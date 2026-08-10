@@ -313,6 +313,61 @@ body{padding-bottom:var(--rail)}
   *{animation:none!important;transition:none!important}
   .rail{transform:none}
 }
+
+/* ---------- lens accordion ---------- */
+.lenspicker{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.6rem}
+.lensbtn{font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.01em;font-size:1rem;
+  background:transparent;color:inherit;border:3px solid currentColor;padding:.75rem 1.2rem;cursor:pointer}
+.lensbtn:hover{background:var(--acc);color:var(--pbg);border-color:var(--acc)}
+.lensbtn.active{background:var(--acc);color:var(--pbg);border-color:var(--acc)}
+.lenspanel{border:3px solid currentColor}
+.lenspanel .lp-in{padding:clamp(1.4rem,3vw,2.2rem)}
+.lp-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-bottom:1px solid currentColor;margin-bottom:1.4rem}
+.lp-metrics .dim{border:0;border-right:1px solid currentColor;border-bottom:0}
+.lp-metrics .dim:last-child{border-right:0}
+@media(max-width:560px){.lp-metrics{grid-template-columns:1fr 1fr}
+  .lp-metrics .dim:nth-child(2n){border-right:0}
+  .lp-metrics .dim{border-bottom:1px solid currentColor}}
+.lp-hl{margin:0;padding:0;list-style:none;max-width:70ch}
+.lp-hl li{position:relative;padding-left:1.5rem;margin-bottom:.7rem;font-size:1rem;line-height:1.55}
+.lp-hl li:last-child{margin-bottom:0}
+.lp-hl li::before{content:"";position:absolute;left:0;top:.62em;width:11px;height:3px;background:var(--acc)}
+.lp-hl li b{font-weight:600}
+.lp-linkslabel{margin:1.3rem 0 .6rem;font-family:Bricolage,sans-serif;font-weight:800;font-size:.72rem;
+  letter-spacing:.09em;text-transform:uppercase;opacity:.7}
+.lp-links{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin:0;padding:0;list-style:none}
+
+/* figures: toggle column (left) + fixed quotes (right) */
+.figures-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+@media(max-width:900px){.figures-cols{grid-template-columns:1fr}}
+
+/* default metrics: one unified 3x3 grid */
+.fig-metrics{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);
+  gap:1px;background:currentColor;border:3px solid currentColor}
+.fig-metrics .dim{background:var(--pbg);border:0;padding:1.15rem 1.2rem;display:flex;flex-direction:column;justify-content:center}
+.fig-metrics .dim .v{color:inherit}
+.fig-metrics .dim:nth-child(1){grid-column:1;grid-row:1}
+.fig-metrics .dim:nth-child(2){grid-column:1;grid-row:2}
+.fig-metrics .dim:nth-child(3){grid-column:1;grid-row:3}
+.fig-metrics .dim:nth-child(4){grid-column:2;grid-row:1}
+.fig-metrics .dim:nth-child(5){grid-column:3;grid-row:1}
+.fig-metrics .dim:nth-child(6){grid-column:2;grid-row:2}
+.fig-metrics .dim:nth-child(7){grid-column:3;grid-row:2}
+.fig-metrics .dim:nth-child(8){grid-column:2;grid-row:3}
+.fig-metrics .dim:nth-child(9){grid-column:3;grid-row:3}
+@media(max-width:680px){.fig-metrics{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .fig-metrics .dim{grid-column:auto!important;grid-row:auto!important}}
+@media(max-width:420px){.fig-metrics{grid-template-columns:1fr}}
+
+/* career eyebrow */
+.bus-eyebrow{margin:0 0 clamp(1.6rem,3vw,2.2rem);font-family:Bricolage,sans-serif;font-weight:800;
+  font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+/* compact software-statement header (was a full stmt panel) */
+.stmt-band{padding-top:clamp(1.8rem,3.5vw,2.6rem);padding-bottom:clamp(1.8rem,3.5vw,2.6rem)}
+.stmt-head{margin:0;display:flex;flex-wrap:wrap;gap:.6rem 2.8rem;font-family:Bricolage,sans-serif;font-weight:600;
+  font-size:clamp(1rem,1.9vw,1.3rem);line-height:1.4}
+.stmt-head b{font-weight:800;color:var(--yellow);font-size:1.3em;letter-spacing:-.02em}
 </style>
 </head>
 <body>
@@ -341,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <h1>Revenue programs, client relationships, and the systems <em>that scale them.</em></h1>
       <div class="bottom">
-        <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $7.2M+ in closed revenue. I then taught myself to build the production software that the team and the business needed. I've shipped four AI/GTM engineering tools, numerous agents, and countless skills, burning ~425M tokens in the process, now used daily to save time, increase revenue, and flag risk across customers.</p>
+        <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $7.2M+ in closed revenue. I then taught myself full-stack engineering to build the production software the team and the business needed. I've shipped four AI/GTM engineering tools end to end &mdash; architecture, backend, and UI &mdash; plus numerous agents and countless skills, running ~425M tokens in production, now used daily to save time, increase revenue, and flag risk across customers.</p>
         <div class="contact">
           <img class="avatar" src="assets/james-avatar.jpg" alt="Portrait of James Corr" width="80" height="80" loading="eager">
           <div class="acts">
@@ -353,32 +408,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- NUMBERS -->
+  <!-- FIGURES -->
   <section class="panel p-chalk" aria-labelledby="h-figures">
     <div class="in">
       <h2 class="eyebrowless" id="h-figures">What the programs returned.</h2>
-      <div class="stmts">
-        <div class="row"><p class="stmt"><span class="n u">$9.5M+</span><br>in partner-sourced pipeline, and $13.5M+ influenced.</p></div>
-        <div class="row r"><p class="stmt"><span class="n f">$7.2M+</span><br>in closed revenue, at a 31% close rate.</p></div>
-        <div class="row"><p class="stmt"><span class="n u">~29%</span><br>of total company pipeline came from partners.</p></div>
-        <div class="row r"><p class="stmt"><span class="n f">50+</span><br>partners in an ecosystem I built solo, then grew into a team of three.</p></div>
-        <div class="row"><p class="stmt"><span class="n u">114%</span><br>net revenue retention across a 60+ account book.</p></div>
-      </div>
-    </div>
-  </section>
+      <div class="figures-cols">
+        <div>
+          <div class="lenspicker" role="group" aria-label="Filter experience by discipline">
+            <button type="button" class="lensbtn active" id="lensbtn-default" data-lens="default" aria-expanded="true" aria-controls="lens-default">Default</button>
+            <button type="button" class="lensbtn" id="lensbtn-partnerships" data-lens="partnerships" aria-expanded="false" aria-controls="lens-partnerships">Partnerships</button>
+            <button type="button" class="lensbtn" id="lensbtn-gtm" data-lens="gtm" aria-expanded="false" aria-controls="lens-gtm">GTM / GTM Engineering</button>
+            <button type="button" class="lensbtn" id="lensbtn-account-management" data-lens="account-management" aria-expanded="false" aria-controls="lens-account-management">Account Management</button>
+          </div>
 
-  <!-- BIO -->
-  <section class="panel p-yellow" aria-labelledby="h-about">
-    <div class="in">
-      <h2 class="eyebrowless" id="h-about">Where relationships meet the systems that scale them.</h2>
-      <div class="bio-cols">
-        <div class="bio">
-          <p>The revenue side has always been about protecting what's already been won while building what's next. I've carried retention above 88% across every client-facing leadership role I've held, peaking at 114% net revenue retention on Freshpaint's book, while pushing partner-sourced pipeline to 29% of total company pipeline and $13.5M+ influenced. Underneath the different titles (Team Lead, Associate Director, Head of Partnerships), the job was always the same: the number only holds if the relationship underneath it does.</p>
-          <div class="bio-pair">
-            <p>Along the way I kept hitting manual workflows nobody was going to staff, so I built the systems myself. Output is the collection layer; it pulls action items and sentiment signals straight out of the meeting, runs them through a Slack human-in-the-loop check, and writes them into the task board and the CRM, so capturing the data that matters stops being a chore. Postgame sits a layer up: an aggregation and visualization tool that pulls signal from wherever it already lives — Output's sentiment feed inside the CRM, call intelligence platforms like Gong — and turns it into one renewal-health read leadership can act on. Production systems that shipped and stayed running, not demos.</p>
-            <p>The through-line is 0-to-1 process design: architecting Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead; becoming Freshpaint's first Account Management hire and defining the function from scratch; and the discovery habit behind every project I build, customer and partner conversations that surface the real problem before any code gets written.</p>
+          <div id="lens-default" role="region" aria-labelledby="lensbtn-default">
+            <div class="fig-metrics">
+              <div class="dim"><span class="v">$9.5M+</span><span class="l">Partner-sourced pipeline</span></div>
+              <div class="dim"><span class="v">$13.5M+</span><span class="l">Partner-influenced</span></div>
+              <div class="dim"><span class="v">$7.2M+</span><span class="l">Closed / won revenue</span></div>
+              <div class="dim"><span class="v">~29%</span><span class="l">of total company pipeline</span></div>
+              <div class="dim"><span class="v">50+</span><span class="l">Partner ecosystem, solo to team of 3</span></div>
+              <div class="dim"><span class="v">114%</span><span class="l">Net revenue retention, 60+ accounts</span></div>
+              <div class="dim"><span class="v">4</span><span class="l">Apps shipped, 4 on Claude API</span></div>
+              <div class="dim"><span class="v">6+</span><span class="l">Years of management experience</span></div>
+              <div class="dim"><span class="v">425M+</span><span class="l">LLM tokens run</span></div>
+            </div>
+          </div>
+
+          <div class="lenspanel" id="lens-partnerships" role="region" aria-labelledby="lensbtn-partnerships" hidden>
+            <div class="lp-in">
+              <div class="lp-metrics">
+                <div class="dim"><span class="v">$9.5M+</span><span class="l">Partner-sourced pipeline</span></div>
+                <div class="dim"><span class="v">$13.5M+</span><span class="l">Partner-influenced</span></div>
+                <div class="dim"><span class="v">50+</span><span class="l">Partner ecosystem</span></div>
+                <div class="dim"><span class="v">9/10</span><span class="l">Quarters on quota</span></div>
+              </div>
+              <ul class="lp-hl">
+                <li>Built the partner program from <b>0 to a team of 3</b> across 50+ digital agency, legal, compliance, and technology partners.</li>
+                <li>Designed and launched GTM motions with strategic partners: co-marketing, demand generation, in-person events, executive alignment, and account mapping.</li>
+                <li>Conducted 100+ partner and customer discovery calls.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="lenspanel" id="lens-gtm" role="region" aria-labelledby="lensbtn-gtm" hidden>
+            <div class="lp-in">
+              <div class="lp-metrics">
+                <div class="dim"><span class="v">4</span><span class="l">Products shipped, 4 on Claude API</span></div>
+                <div class="dim"><span class="v">425M+</span><span class="l">LLM tokens run</span></div>
+                <div class="dim"><span class="v">~29%</span><span class="l">of pipeline sourced via partners</span></div>
+                <div class="dim"><span class="v">$7.2M+</span><span class="l">Closed revenue influenced</span></div>
+              </div>
+              <ul class="lp-hl">
+                <li><b>Output</b>, a live multi-user SaaS that captures action items and sentiment straight out of meetings via a Slack human-in-the-loop flow.</li>
+                <li><b>Postgame</b>, a daily leadership briefing that aggregates renewal-risk signal across the CRM and Gong into one read.</li>
+                <li><b>ClienTell</b> and the <b>Daily Brief Agent</b>, both still in production today.</li>
+              </ul>
+              <p class="lp-linkslabel">See it built</p>
+              <ul class="lp-links">
+                <li><a class="wlink" href="#w-output">Output &#8599;</a></li>
+                <li><a class="wlink" href="#w-postgame">Postgame &#8599;</a></li>
+                <li><a class="wlink" href="#w-clientell">ClienTell &#8599;</a></li>
+                <li><a class="wlink" href="#w-brief">Daily Brief Agent &#8599;</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="lenspanel" id="lens-account-management" role="region" aria-labelledby="lensbtn-account-management" hidden>
+            <div class="lp-in">
+              <div class="lp-metrics">
+                <div class="dim"><span class="v">114%</span><span class="l">Net revenue retention</span></div>
+                <div class="dim"><span class="v">60+</span><span class="l">Account portfolio</span></div>
+                <div class="dim"><span class="v">91%+</span><span class="l">Client retention at Seer</span></div>
+                <div class="dim"><span class="v">4</span><span class="l">Team Leads managed</span></div>
+              </div>
+              <ul class="lp-hl">
+                <li>Freshpaint's <b>first Account Management hire</b>, building the foundational renewal and upsell motions from scratch.</li>
+                <li>Managed a 60+ customer healthcare SaaS portfolio to 114% net revenue retention.</li>
+                <li>Architected Seer's Measurement Strategy framework, rolled out across 40 to 50 clients and every Team Lead.</li>
+                <li><a class="wlink" href="#w-postgame">Postgame &#8599;</a> &mdash; built to give account teams one renewal-health read instead of stitching signal together by hand.</li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div class="quotes">
           <blockquote class="quote">
             <p>&ldquo;He has a rare ability to make complicated topics, particularly analytics and measurement, clear and actionable for a wide range of audiences. &hellip; I recommend James without reservation.&rdquo;</p>
@@ -400,6 +513,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- CAREER -->
   <section class="panel p-ink" aria-label="Career history">
     <div class="in">
+      <p class="bus-eyebrow">See full experience:</p>
       <div class="bus">
 
         <article class="role">
@@ -521,12 +635,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- SOFTWARE STATEMENT -->
-  <section class="panel p-ultra">
+  <section class="panel p-ultra stmt-band">
     <div class="in">
-      <div class="stmts">
-        <div class="row"><p class="stmt"><span class="n y">4</span><br>products shipped end to end, four on the Claude API.</p></div>
-        <div class="row r"><p class="stmt"><span class="n y">425M+</span><br>LLM tokens run across builds, agents, and daily work.</p></div>
-      </div>
+      <p class="stmt-head">
+        <span><b>4</b> products shipped end to end, four on the Claude API.</span>
+        <span><b>425M+</b> LLM tokens run across builds, agents, and daily work.</span>
+      </p>
     </div>
   </section>
 
@@ -711,6 +825,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   new IntersectionObserver(function(entries){
     rail.classList.toggle('on', !entries[0].isIntersecting);
   }, { threshold: 0 }).observe(hero);
+})();
+
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.lensbtn'));
+  if (!btns.length) return;
+  var panels = {
+    'default': document.getElementById('lens-default'),
+    'partnerships': document.getElementById('lens-partnerships'),
+    'gtm': document.getElementById('lens-gtm'),
+    'account-management': document.getElementById('lens-account-management')
+  };
+
+  function show(slug){
+    Object.keys(panels).forEach(function(key){
+      if (panels[key]) panels[key].hidden = (key !== slug);
+    });
+    btns.forEach(function(b){
+      var active = b.dataset.lens === slug;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-expanded', active ? 'true' : 'false');
+    });
+  }
+  function setUrl(slug){
+    try{
+      var url = new URL(location.href);
+      if (slug && slug !== 'default') url.searchParams.set('lens', slug); else url.searchParams.delete('lens');
+      history.replaceState(null, '', url);
+    }catch(e){}
+  }
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var slug = btn.dataset.lens;
+      show(slug);
+      setUrl(slug);
+    });
+  });
+
+  var initial = new URLSearchParams(location.search).get('lens');
+  if (initial && panels[initial]) show(initial);
 })();
 </script>
 </body>

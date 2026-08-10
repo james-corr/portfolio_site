@@ -4,9 +4,7 @@ Static, hand-written HTML. No framework, no build step. All CSS and JS are inlin
 `index.html` — there is no separate stylesheet or script file.
 
 Visual world: **Monograph** — ultramarine (`#1E2BD6`), chrome yellow (`#FFCE00`), ink
-(`#111015`), and chalk (`#F3F0E7`), set in Bricolage Grotesque and Faustina. Two previous
-designs are preserved in full: "Split-Flap Concourse" at `../portfolio-original/`, and
-earlier explorations in `../z_archive/`.
+(`#111015`), and chalk (`#F3F0E7`), set in Bricolage Grotesque and Faustina.
 
 ## Local dev
 
@@ -34,9 +32,3 @@ needed day to day; use it only to test a deploy before pushing.
 ## Content source of truth
 
 Page copy lives directly in `index.html`; there is no separate content file to sync from.
-
-## Restoring a previous design
-
-```
-cp -R ../portfolio-original/. .   # Split-Flap Concourse
-```

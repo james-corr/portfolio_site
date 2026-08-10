@@ -85,12 +85,6 @@ a{color:inherit}
 .hero .top{display:flex;justify-content:space-between;align-items:center;gap:1rem 1.5rem;flex-wrap:wrap;
   font-family:Bricolage,sans-serif;font-weight:600;letter-spacing:.02em;font-size:.86rem;text-transform:uppercase}
 
-/* availability marker */
-.avail{display:inline-flex;align-items:center;gap:.6rem;background:var(--flare);color:var(--chalk);
-  padding:.42rem .8rem .42rem .7rem;font-weight:800;letter-spacing:.01em;text-transform:none;font-size:.92rem}
-.avail .dot{width:9px;height:9px;background:var(--chalk);border-radius:50%;flex:none;animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
 .hero h1{margin:clamp(1.2rem,3.4vw,2.2rem) 0 0;font-size:clamp(2.8rem,8.5vw,8.4rem);text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--yellow)}
 .hero .bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem clamp(2.5rem,5vw,4.5rem);
@@ -106,11 +100,6 @@ a{color:inherit}
 .cta:hover{background:var(--chalk);border-color:var(--chalk)}
 .cta.sec{background:transparent;color:var(--chalk);border-color:var(--chalk)}
 .cta.sec:hover{background:var(--chalk);color:var(--ink)}
-
-/* availability strip under the hero fold */
-.openline{margin-top:clamp(1.2rem,2.6vw,1.8rem);padding-top:1rem;border-top:3px solid var(--yellow);
-  font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.02em;
-  font-size:clamp(1.05rem,2.1vw,1.6rem);color:var(--yellow)}
 
 /* ---------- statement panels ---------- */
 .stmt{font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.04em;line-height:.95;
@@ -286,8 +275,6 @@ a{color:inherit}
 .rail .seg{padding:0 clamp(.7rem,1.6vw,1.3rem);white-space:nowrap;display:flex;align-items:center;height:100%}
 .rail .seg.b{font-weight:800;letter-spacing:-.02em;font-size:.95rem}
 .rail .seg.dim{opacity:.62}
-.rail .seg.open{color:var(--flare);font-weight:800;display:flex;align-items:center;gap:.5rem}
-.rail .seg.open i{width:8px;height:8px;background:var(--flare);border-radius:50%;flex:none}
 .rail .go{margin-left:auto;background:var(--ultra);color:var(--chalk);text-decoration:none;font-weight:800;
   padding:0 clamp(1rem,2.4vw,1.9rem);letter-spacing:-.02em;font-size:.95rem;display:flex;align-items:center;height:100%}
 .rail .go:hover{background:var(--flare)}
@@ -349,10 +336,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="panel p-ultra hero">
     <div class="in" style="width:100%">
       <div class="top">
-        <span class="avail"><i class="dot"></i>Actively interviewing</span>
+        <span>Actively considering roles in partnerships, GTM, and GTM Engineering.</span>
         <span>Wilmington, DE. Remote.</span>
       </div>
-      <h1>Revenue programs, client relationships, and the systems <em>that scale them.</em></h1>
+      <h1>Revenue and Product Programs, client relationships and the systems <em>that scale them.</em></h1>
       <div class="bottom">
         <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $7.2M+ in closed revenue. I then taught myself to build the production software that the team and the business needed. I've shipped four AI/GTM engineering tools, numerous agents, and countless skills, burning ~425M tokens in the process, now used daily to save time, increase revenue, and flag risk across customers.</p>
         <div class="contact">
@@ -363,7 +350,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <p class="openline">Actively looking for roles in Partnerships, GTM/GTM Engineering, and Product.</p>
     </div>
   </section>
 
@@ -675,7 +661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="tbfoot">
         <span>James Corr. Wilmington, DE. Remote.</span>
-        <span class="y">Actively looking for roles in Partnerships, GTM/GTM Engineering, and Product.</span>
+        <span class="y">Actively considering roles in partnerships, GTM, and GTM Engineering.</span>
       </div>
     </div>
   </section>
@@ -684,7 +670,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="rail" id="rail">
   <span class="seg b">James Corr</span>
-  <span class="seg open"><i></i>Actively interviewing</span>
   <span class="seg dim hide">Head of Partnerships, Freshpaint</span>
   <span class="seg dim hide">$9.5M+ partner-sourced pipeline</span>
   <a class="go" href="mailto:James.corr1990@gmail.com">Get in touch</a>

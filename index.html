@@ -190,9 +190,7 @@ a{color:inherit}
 .projects{padding:clamp(1.4rem,3vw,2.4rem) var(--pad);display:flex;flex-direction:column;overflow:hidden;
   height:calc(100svh - var(--rail));min-height:520px}
 .projects > .in{flex:1;min-height:0;display:flex;flex-direction:column;width:100%}
-.projects h2{margin:0}
-.proj-sub{margin:.65rem 0 clamp(1.1rem,2.4vw,1.7rem);font-family:Bricolage,sans-serif;font-weight:600;
-  font-size:.9rem;letter-spacing:.03em;text-transform:uppercase;opacity:.7}
+.projects h2{margin:0 0 clamp(1.1rem,2.6vw,1.9rem)}
 .proj{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,9fr);
   grid-template-rows:minmax(0,1fr);gap:clamp(1.4rem,3.5vw,3rem)}
 
@@ -226,6 +224,13 @@ a{color:inherit}
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,3vw,2.6rem)}
 .dbody .spec{margin:0}
 .dbody .shot{margin:0;position:sticky;top:0}
+.shot .sbd{display:block;width:100%;height:auto;background:var(--ink);border:2px solid var(--ink)}
+.shot .sbd text{font-family:Bricolage,system-ui,sans-serif}
+.shot .sbd .h{fill:var(--chalk);font-weight:800;font-size:19px;letter-spacing:-.4px}
+.shot .sbd .sub{fill:var(--chalk);font-family:Faustina,Georgia,serif;font-size:13px;opacity:.82}
+.shot .sbd .barh{fill:var(--ink);font-weight:800;font-size:16.5px;letter-spacing:-.3px}
+.shot .sbd .bars{fill:var(--ink);font-weight:600;font-size:10.5px;letter-spacing:.7px}
+.shot .sbd .out{fill:var(--chalk);font-weight:800;font-size:12.5px;letter-spacing:1.6px}
 
 @media(max-width:1100px){
   .projects{height:auto;min-height:0;overflow:visible}
@@ -443,7 +448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <h1>Revenue programs, client relationships, and the systems <em>that scale them.</em></h1>
       <div class="bottom">
-        <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $7.2M+ in closed revenue. I then taught myself full-stack engineering to build the production software the team and the business needed. I've shipped four AI/GTM engineering tools end to end &mdash; architecture, backend, and UI &mdash; plus numerous agents and countless skills, running ~425M tokens in production, now used daily to save time, increase revenue, and flag risk across customers.</p>
+        <p>Twelve years building revenue programs and managing client relationships across B2B SaaS, consulting, and analytics. I spent my first decade in analytics, eventually managing four team leads and their account managers across 50+ clients and a $5M+ recurring-revenue book. Most recently at Freshpaint, I built the partnerships program from zero to a 50+ partner ecosystem and a team of three, driving $9.5M+ in partner-sourced pipeline and $7.2M+ in closed revenue. I then taught myself full-stack engineering to build the production software the team and the business needed. I've shipped five production tools end to end &mdash; architecture, backend, and UI &mdash; plus numerous agents and countless skills, running ~500M tokens in production, now used daily to save time, increase revenue, and flag risk across customers.</p>
         <div class="contact">
           <img class="avatar" src="assets/james-avatar.jpg" alt="Portrait of James Corr" width="80" height="80" loading="eager">
           <div class="acts">
@@ -476,9 +481,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="dim"><span class="v">~29%</span><span class="l">of total company pipeline</span></div>
               <div class="dim"><span class="v">50+</span><span class="l">Partner ecosystem, solo to team of 3</span></div>
               <div class="dim"><span class="v">114%</span><span class="l">Net revenue retention, 60+ accounts</span></div>
-              <div class="dim"><span class="v">4</span><span class="l">Apps shipped, 4 on Claude API</span></div>
+              <div class="dim"><span class="v">5</span><span class="l">Apps shipped, 5 on Claude API</span></div>
               <div class="dim"><span class="v">6+</span><span class="l">Years of management experience</span></div>
-              <div class="dim"><span class="v">425M+</span><span class="l">LLM tokens run</span></div>
+              <div class="dim"><span class="v">500M+</span><span class="l">LLM tokens run</span></div>
             </div>
           </div>
 
@@ -501,8 +506,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="lenspanel" id="lens-gtm" role="region" aria-labelledby="lensbtn-gtm" hidden>
             <div class="lp-in">
               <div class="lp-metrics">
-                <div class="dim"><span class="v">4</span><span class="l">Products shipped, 4 on Claude API</span></div>
-                <div class="dim"><span class="v">425M+</span><span class="l">LLM tokens run</span></div>
+                <div class="dim"><span class="v">5</span><span class="l">Products shipped, 5 on Claude API</span></div>
+                <div class="dim"><span class="v">500M+</span><span class="l">LLM tokens run</span></div>
                 <div class="dim"><span class="v">~29%</span><span class="l">of pipeline sourced via partners</span></div>
                 <div class="dim"><span class="v">$7.2M+</span><span class="l">Closed revenue influenced</span></div>
               </div>
@@ -691,8 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="panel p-ultra stmt-band">
     <div class="in">
       <p class="stmt-head">
-        <span><b>4</b> products shipped end to end, four on the Claude API.</span>
-        <span><b>425M+</b> LLM tokens run across builds, agents, and daily work.</span>
+        <span>Over <b>500M+</b> LLM tokens run across builds, agents, and daily work.</span>
       </p>
     </div>
   </section>
@@ -701,7 +705,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="panel p-chalk projects" aria-labelledby="h-work">
     <div class="in">
       <h2 class="eyebrowless" id="h-work">The software, running.</h2>
-      <p class="proj-sub">Four tools shipped end to end</p>
       <div class="proj">
         <div class="proj-index" role="tablist" aria-orientation="vertical" aria-label="Projects">
           <button type="button" role="tab" id="w-output" data-project="output" aria-controls="lp-output" aria-selected="true" tabindex="0">
@@ -715,6 +718,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </button>
           <button type="button" role="tab" id="w-brief" data-project="brief" aria-controls="lp-brief" aria-selected="false" tabindex="-1">
             <span class="pn">04</span><span class="pnm">Daily Brief Agent</span><span class="pt">Enterprise agent &middot; Still running</span>
+          </button>
+          <button type="button" role="tab" id="w-secondbrain" data-project="secondbrain" aria-controls="lp-secondbrain" aria-selected="false" tabindex="-1">
+            <span class="pn">05</span><span class="pnm">SecondBrain</span><span class="pt">Self-maintaining vault &middot; Daily use</span>
           </button>
         </div>
 
@@ -803,6 +809,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </article>
 
+          <article class="proj-detail" role="tabpanel" id="lp-secondbrain" aria-labelledby="w-secondbrain" tabindex="0" hidden>
+            <div class="dhead">
+              <h3>SecondBrain</h3>
+            </div>
+            <p class="wtag">Personal knowledge system. Built on the LLM-wiki pattern, maintained by scheduled agents.</p>
+            <div class="dbody">
+              <dl class="spec">
+                <dt>Problem</dt><dd>Articles, meeting transcripts, book highlights, and my own notes piled up across apps &mdash; captured once, never resurfaced, and impossible to query as one connected body of knowledge.</dd>
+                <dt>Decision</dt><dd>Built an Obsidian vault on Andrej Karpathy's <b>LLM-wiki pattern</b>, split into three layers &mdash; immutable Sources, an LLM-maintained Brain, and mutable life and project state &mdash; under a strict frontmatter and linking schema. Two scheduled Claude Code cloud agents run it: a daily one files new captures and synthesizes them into the Brain; a weekly one audits for orphans, broken links, contradictions, and stale pages, fixing what's safe and flagging the rest.</dd>
+                <dt>Outcome</dt><dd>An always-current personal knowledge base &mdash; <b>~260 notes, 100+ synthesized Brain pages</b> &mdash; that answers questions with source citations and tracks active projects, with no manual filing. Both agents commit straight to GitHub, so it stays maintained on its own and syncs across devices.</dd>
+                <dt class="stackdt last">Stack</dt><dd class="stackdd last">Obsidian, Markdown, Claude Code cloud routines, Claude Sonnet, GitHub</dd>
+              </dl>
+              <figure class="shot">
+                <div class="plate">
+                  <svg class="sbd" viewBox="0 0 680 496" role="img" aria-label="SecondBrain architecture. New captures enter through the inbox. A daily ingest agent routes each capture and synthesizes it into three layers: immutable Sources with 129 notes, an LLM-maintained Brain with 101 pages, and mutable Life-OS and Projects state. A weekly lint agent audits and fixes the vault for orphans, broken links, contradictions, and stale pages. The result is a queryable, source-cited, always-current knowledge base.">
+                    <rect class="b" x="200" y="12" width="280" height="58" fill="none" stroke="#F3F0E7" stroke-width="3"/>
+                    <text class="h" x="340" y="38" text-anchor="middle">0 &middot; INBOX</text>
+                    <text class="sub" x="340" y="58" text-anchor="middle">new captures land here</text>
+
+                    <line x1="340" y1="70" x2="340" y2="98" stroke="#F3F0E7" stroke-width="3"/>
+                    <rect x="336" y="94" width="8" height="8" fill="#F3F0E7"/>
+
+                    <rect class="bar" x="16" y="102" width="648" height="56" fill="#FFCE00"/>
+                    <text class="barh" x="340" y="128" text-anchor="middle">DAILY INGEST AGENT</text>
+                    <text class="bars" x="340" y="146" text-anchor="middle">ROUTES + SYNTHESIZES NEW CAPTURES INTO THE BRAIN</text>
+
+                    <line x1="340" y1="158" x2="340" y2="188" stroke="#F3F0E7" stroke-width="3"/>
+                    <rect x="336" y="184" width="8" height="8" fill="#F3F0E7"/>
+
+                    <rect class="b" x="16" y="192" width="204" height="116" fill="none" stroke="#F3F0E7" stroke-width="3"/>
+                    <text class="h" x="118" y="230" text-anchor="middle">1 &middot; SOURCES</text>
+                    <text class="sub" x="118" y="254" text-anchor="middle">immutable</text>
+                    <text class="sub" x="118" y="276" text-anchor="middle">129 notes</text>
+
+                    <rect class="b" x="238" y="192" width="204" height="116" fill="none" stroke="#F3F0E7" stroke-width="3"/>
+                    <text class="h" x="340" y="230" text-anchor="middle">2 &middot; BRAIN</text>
+                    <text class="sub" x="340" y="254" text-anchor="middle">LLM-maintained</text>
+                    <text class="sub" x="340" y="276" text-anchor="middle">101 pages</text>
+
+                    <rect class="b" x="460" y="192" width="204" height="116" fill="none" stroke="#F3F0E7" stroke-width="3"/>
+                    <text class="h" x="562" y="230" text-anchor="middle">3 &middot; LIFE-OS</text>
+                    <text class="sub" x="562" y="254" text-anchor="middle">+ 4 &middot; Projects</text>
+                    <text class="sub" x="562" y="276" text-anchor="middle">mutable state</text>
+
+                    <line x1="340" y1="308" x2="340" y2="338" stroke="#F3F0E7" stroke-width="3"/>
+                    <rect x="336" y="334" width="8" height="8" fill="#F3F0E7"/>
+
+                    <rect class="bar" x="16" y="342" width="648" height="56" fill="#FFCE00"/>
+                    <text class="barh" x="340" y="368" text-anchor="middle">WEEKLY LINT AGENT</text>
+                    <text class="bars" x="340" y="386" text-anchor="middle">AUDITS + FIXES &nbsp;ORPHANS &middot; BROKEN LINKS &middot; CONTRADICTIONS &middot; STALE</text>
+
+                    <line x1="340" y1="398" x2="340" y2="426" stroke="#F3F0E7" stroke-width="3"/>
+                    <rect x="336" y="422" width="8" height="8" fill="#F3F0E7"/>
+
+                    <rect class="b" x="16" y="430" width="648" height="50" fill="none" stroke="#F3F0E7" stroke-width="3"/>
+                    <text class="out" x="340" y="460" text-anchor="middle">QUERYABLE &middot; SOURCE-CITED &middot; ALWAYS CURRENT</text>
+                  </svg>
+                </div>
+                <figcaption>The three-layer vault and its two maintenance agents</figcaption>
+              </figure>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
@@ -839,8 +908,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cell">
           <h3>Run to date</h3>
           <ul>
-            <li>425M+ LLM tokens run, mostly Claude</li>
-            <li>4 products shipped end to end, 4 on the Claude API</li>
+            <li>500M+ LLM tokens run, mostly Claude</li>
+            <li>5 products shipped end to end, 5 on the Claude API</li>
             <li>114% NRR at Freshpaint. 91%+ retention at Seer.</li>
           </ul>
         </div>
@@ -983,7 +1052,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   // in-page links like #w-output (from the discipline-lens panels) select the project
-  var HASH = { 'w-output':'output', 'w-postgame':'postgame', 'w-clientell':'clientell', 'w-brief':'brief' };
+  var HASH = { 'w-output':'output', 'w-postgame':'postgame', 'w-clientell':'clientell', 'w-brief':'brief', 'w-secondbrain':'secondbrain' };
   function fromHash(){
     var slug = HASH[location.hash.replace('#','')];
     if (slug) show(slug, false);

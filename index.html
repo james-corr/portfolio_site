@@ -186,13 +186,60 @@ a{color:inherit}
 .dim .l{display:block;margin-top:.3rem;font-family:Bricolage,sans-serif;font-weight:600;font-size:.7rem;
   letter-spacing:.09em;text-transform:uppercase;opacity:.72;line-height:1.4}
 
-/* ---------- systems ---------- */
-.wpanel{padding:clamp(3rem,7vw,6rem) var(--pad);overflow:hidden}
-.wpanel .in{max-width:var(--max);margin:0 auto}
-.wtop{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.5fr);gap:1.6rem clamp(2rem,4vw,4rem);
-  align-items:start}
-@media(max-width:900px){.wtop{grid-template-columns:1fr}}
-.wpanel h3{margin:0;font-size:clamp(2.4rem,6vw,5.2rem)}
+/* ---------- projects: split index + detail ---------- */
+.projects{padding:clamp(1.4rem,3vw,2.4rem) var(--pad);display:flex;flex-direction:column;overflow:hidden;
+  height:calc(100svh - var(--rail));min-height:520px}
+.projects > .in{flex:1;min-height:0;display:flex;flex-direction:column;width:100%}
+.projects h2{margin:0}
+.proj-sub{margin:.65rem 0 clamp(1.1rem,2.4vw,1.7rem);font-family:Bricolage,sans-serif;font-weight:600;
+  font-size:.9rem;letter-spacing:.03em;text-transform:uppercase;opacity:.7}
+.proj{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,9fr);
+  grid-template-rows:minmax(0,1fr);gap:clamp(1.4rem,3.5vw,3rem)}
+
+.proj-index{border:3px solid currentColor;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.proj-index button{appearance:none;background:transparent;color:inherit;border:0;border-bottom:1px solid currentColor;
+  cursor:pointer;font:inherit;text-align:left;position:relative;
+  flex:1 1 0;display:flex;flex-direction:column;justify-content:center;gap:.4rem;
+  padding:clamp(.9rem,2vw,1.5rem) clamp(.95rem,1.9vw,1.4rem)}
+.proj-index button:last-child{border-bottom:0}
+.proj-index .pn{font-family:Bricolage,sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.13em;opacity:.55}
+.proj-index .pnm{font-family:Bricolage,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.92;
+  font-size:clamp(1.35rem,2.2vw,2rem)}
+.proj-index .pt{font-family:Bricolage,sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.09em;
+  text-transform:uppercase;opacity:.66;line-height:1.35}
+.proj-index button:hover .pnm{color:var(--acc)}
+.proj-index button[aria-selected="true"]{background:var(--acc);color:var(--chalk)}
+.proj-index button[aria-selected="true"] .pnm{color:var(--chalk)}
+.proj-index button[aria-selected="true"] .pn,.proj-index button[aria-selected="true"] .pt{opacity:.82}
+.proj-index button[aria-selected="true"]::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--flare)}
+
+.proj-detailwrap{min-width:0;min-height:0;display:flex}
+.proj-detail{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;
+  overflow-y:auto;overscroll-behavior:contain}
+.proj-detail[hidden]{display:none}
+.proj-detail .dhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:.4rem 1.4rem;border-bottom:3px solid currentColor;padding-bottom:.85rem}
+.proj-detail .dhead h3{margin:0;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:.88}
+.proj-detail .wtag{margin:.65rem 0 0}
+.proj-detail .dhead .wlink{margin-top:0;white-space:nowrap}
+.dbody{margin-top:clamp(1.1rem,2.6vw,1.7rem);display:grid;align-content:start;align-items:start;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,3vw,2.6rem)}
+.dbody .spec{margin:0}
+.dbody .shot{margin:0;position:sticky;top:0}
+
+@media(max-width:1100px){
+  .projects{height:auto;min-height:0;overflow:visible}
+  .proj{grid-template-columns:minmax(0,4fr) minmax(0,8fr);grid-template-rows:auto}
+  .proj-detail{overflow-y:visible}
+  .dbody{grid-template-columns:1fr;gap:clamp(1.3rem,3vw,2rem)}
+  .dbody .shot{position:static;order:-1;align-self:start;max-width:min(100%,620px)}
+}
+@media(max-width:900px){
+  .proj{grid-template-columns:1fr;gap:1.5rem}
+  .proj-index{flex-direction:row;flex-wrap:wrap;border:0;gap:.6rem;overflow:visible}
+  .proj-index button{flex:1 1 42%;border:3px solid currentColor;justify-content:flex-start}
+  .proj-index button[aria-selected="true"]::before{width:100%;height:6px;bottom:auto}
+}
 .wtag{margin:.7rem 0 0;font-family:Bricolage,sans-serif;font-weight:600;font-size:.9rem;
   letter-spacing:.03em;text-transform:uppercase;opacity:.75}
 .wlink{display:inline-block;margin-top:1.1rem;font-family:Bricolage,sans-serif;font-weight:800;
@@ -650,95 +697,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- SYSTEMS -->
-  <section class="wpanel p-chalk" aria-labelledby="w-output">
+  <!-- PROJECTS -->
+  <section class="panel p-chalk projects" aria-labelledby="h-work">
     <div class="in">
-      <div class="wtop">
-        <div>
-          <h3 id="w-output">Output</h3>
-          <p class="wtag">Multi-user SaaS. Live.</p>
-          <a class="wlink" href="https://getoutput.app" target="_blank" rel="noopener noreferrer">getoutput.app</a>
+      <h2 class="eyebrowless" id="h-work">The software, running.</h2>
+      <p class="proj-sub">Four tools shipped end to end</p>
+      <div class="proj">
+        <div class="proj-index" role="tablist" aria-orientation="vertical" aria-label="Projects">
+          <button type="button" role="tab" id="w-output" data-project="output" aria-controls="lp-output" aria-selected="true" tabindex="0">
+            <span class="pn">01</span><span class="pnm">Output</span><span class="pt">Multi-user SaaS &middot; Live</span>
+          </button>
+          <button type="button" role="tab" id="w-postgame" data-project="postgame" aria-controls="lp-postgame" aria-selected="false" tabindex="-1">
+            <span class="pn">02</span><span class="pnm">Postgame</span><span class="pt">CS command center &middot; Still running</span>
+          </button>
+          <button type="button" role="tab" id="w-clientell" data-project="clientell" aria-controls="lp-clientell" aria-selected="false" tabindex="-1">
+            <span class="pn">03</span><span class="pnm">ClienTell</span><span class="pt">Research automation &middot; Still running</span>
+          </button>
+          <button type="button" role="tab" id="w-brief" data-project="brief" aria-controls="lp-brief" aria-selected="false" tabindex="-1">
+            <span class="pn">04</span><span class="pnm">Daily Brief Agent</span><span class="pt">Enterprise agent &middot; Still running</span>
+          </button>
         </div>
-        <dl class="spec">
-          <dt>Problem</dt><dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call — and softer signals, like customer sentiment and renewal risk, never got captured anywhere at all.</dd>
-          <dt>Decision</dt><dd>Built a <b>human-in-the-loop Slack approve or deny flow</b> that captures both action items and sentiment signals straight out of the meeting, scored by Claude Haiku, instead of writing either straight into the board or the CRM, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
-          <dt>Outcome</dt><dd>Live multi-user SaaS in daily use by teammates: confirmed action items write to the task board, confirmed sentiment writes to the CRM, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Supabase, Claude Haiku, Fly.io</dd>
-        </dl>
-      </div>
-      <figure class="shot bleed-r">
-        <div class="plate"><img src="assets/output.png" alt="The Output marketing site, showing the action-item dashboard and the Slack approve or skip flow." loading="lazy" width="1348" height="924"></div>
-        <figcaption>getoutput.app, captured live</figcaption>
-      </figure>
-    </div>
-  </section>
 
-  <section class="wpanel p-ink" aria-labelledby="w-postgame">
-    <div class="in">
-      <div class="wtop">
-        <div>
-          <h3 id="w-postgame">Postgame</h3>
-          <p class="wtag">CS command center. Built during my time at Freshpaint, still running.</p>
-        </div>
-        <dl class="spec">
-          <dt>Problem</dt><dd>Renewal-risk signal was scattered — sentiment sitting in the CRM, call recordings and scores sitting in call intelligence tools like Gong — so leadership had to manually stitch together account health before every forecast.</dd>
-          <dt>Decision</dt><dd>Built an <b>aggregation and visualization layer</b> instead of another point tool: it pulls signal from wherever it already lives, Output's sentiment feed inside the CRM, call intelligence platforms like Gong, and feeds it to Claude Sonnet, which evaluates sentiment across the whole book and writes the daily narrative.</dd>
-          <dt>Outcome</dt><dd>A daily leadership briefing scoring renewal risk across every account inside its 90-day window, combined Gong-plus-human sentiment, and the specific accounts that need attention that week, built from signal that used to live in three different places.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Postgres, Claude Sonnet, Fly.io</dd>
-        </dl>
-      </div>
-      <figure class="shot bleed-l">
-        <div class="plate"><img src="assets/postgame_UI.png" alt="The Postgame daily briefing, showing ARR up for renewal, accounts flagged for leadership, and combined Gong-plus-human sentiment scoring across the book." loading="lazy" width="1416" height="926"></div>
-        <figcaption>Postgame daily briefing, internal tool</figcaption>
-      </figure>
-    </div>
-  </section>
+        <div class="proj-detailwrap">
 
-  <section class="wpanel p-yellow" aria-labelledby="w-clientell">
-    <div class="in">
-      <div class="wtop">
-        <div>
-          <h3 id="w-clientell">ClienTell</h3>
-          <p class="wtag">Research automation. Built during my time at Freshpaint, still running.</p>
-          <a class="wlink" href="https://clientell.fly.dev" target="_blank" rel="noopener noreferrer">clientell.fly.dev</a>
-        </div>
-        <dl class="spec">
-          <dt>Problem</dt><dd>Pre-call research meant manually digging through a company's website to figure out who they already work with.</dd>
-          <dt>Decision</dt><dd>Built a crawler with three depth settings (homepage, 20-page scan, 50-page scan) that reads client mentions with confidence scoring and industry inference, instead of a flat page-by-page manual search.</dd>
-          <dt>Outcome</dt><dd>Saved the team roughly <b>5 hours a month</b> previously spent on manual research and prospecting, with results exportable straight to CSV.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">React, Express, Postgres, Playwright, Claude API</dd>
-        </dl>
-      </div>
-      <figure class="shot bleed-r">
-        <div class="plate">
-          <div class="shot-pair">
-            <img src="assets/ClienTell_homepage.png" alt="The ClienTell homepage, showing the URL field, smart scan toggle, and max pages control." loading="lazy" width="956" height="930">
-            <img src="assets/ClienTell_Report.png" alt="A ClienTell crawl report listing companies found with relationship, confidence, and vertical columns." loading="lazy" width="944" height="929">
-          </div>
-        </div>
-        <figcaption>clientell.fly.dev, input and results, captured live</figcaption>
-      </figure>
-    </div>
-  </section>
+          <article class="proj-detail" role="tabpanel" id="lp-output" aria-labelledby="w-output" tabindex="0">
+            <div class="dhead">
+              <h3>Output</h3>
+              <a class="wlink" href="https://getoutput.app" target="_blank" rel="noopener noreferrer">getoutput.app</a>
+            </div>
+            <p class="wtag">Multi-user SaaS. Live.</p>
+            <div class="dbody">
+              <dl class="spec">
+                <dt>Problem</dt><dd>Teammates were manually copying meeting action items out of a notes tool into the team's task board after every call — and softer signals, like customer sentiment and renewal risk, never got captured anywhere at all.</dd>
+                <dt>Decision</dt><dd>Built a <b>human-in-the-loop Slack approve or deny flow</b> that captures both action items and sentiment signals straight out of the meeting, scored by Claude Haiku, instead of writing either straight into the board or the CRM, so nothing lands without a person confirming it. Onboarding runs through a six-step wizard on a custom design system.</dd>
+                <dt>Outcome</dt><dd>Live multi-user SaaS in daily use by teammates: confirmed action items write to the task board, confirmed sentiment writes to the CRM, handling OAuth across three services with encrypted credentials, crash-safe polling, and automatic retries end to end.</dd>
+                <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Supabase, Claude Haiku, Fly.io</dd>
+              </dl>
+              <figure class="shot">
+                <div class="plate"><img src="assets/output.png" alt="The Output marketing site, showing the action-item dashboard and the Slack approve or skip flow." loading="lazy" width="1348" height="924"></div>
+                <figcaption>getoutput.app, captured live</figcaption>
+              </figure>
+            </div>
+          </article>
 
-  <section class="wpanel p-chalk" aria-labelledby="w-brief">
-    <div class="in">
-      <div class="wtop">
-        <div>
-          <h3 id="w-brief">Daily Brief Agent</h3>
-          <p class="wtag">Enterprise agent. Built during my time at Freshpaint, still running.</p>
+          <article class="proj-detail" role="tabpanel" id="lp-postgame" aria-labelledby="w-postgame" tabindex="0" hidden>
+            <div class="dhead">
+              <h3>Postgame</h3>
+            </div>
+            <p class="wtag">CS command center. Built during my time at Freshpaint, still running.</p>
+            <div class="dbody">
+              <dl class="spec">
+                <dt>Problem</dt><dd>Renewal-risk signal was scattered — sentiment sitting in the CRM, call recordings and scores sitting in call intelligence tools like Gong — so leadership had to manually stitch together account health before every forecast.</dd>
+                <dt>Decision</dt><dd>Built an <b>aggregation and visualization layer</b> instead of another point tool: it pulls signal from wherever it already lives, Output's sentiment feed inside the CRM, call intelligence platforms like Gong, and feeds it to Claude Sonnet, which evaluates sentiment across the whole book and writes the daily narrative.</dd>
+                <dt>Outcome</dt><dd>A daily leadership briefing scoring renewal risk across every account inside its 90-day window, combined Gong-plus-human sentiment, and the specific accounts that need attention that week, built from signal that used to live in three different places.</dd>
+                <dt class="stackdt last">Stack</dt><dd class="stackdd last">Node.js, TypeScript, Postgres, Claude Sonnet, Fly.io</dd>
+              </dl>
+              <figure class="shot">
+                <div class="plate"><img src="assets/postgame_UI.png" alt="The Postgame daily briefing, showing ARR up for renewal, accounts flagged for leadership, and combined Gong-plus-human sentiment scoring across the book." loading="lazy" width="1416" height="926"></div>
+                <figcaption>Postgame daily briefing, internal tool</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="proj-detail" role="tabpanel" id="lp-clientell" aria-labelledby="w-clientell" tabindex="0" hidden>
+            <div class="dhead">
+              <h3>ClienTell</h3>
+              <a class="wlink" href="https://clientell.fly.dev" target="_blank" rel="noopener noreferrer">clientell.fly.dev</a>
+            </div>
+            <p class="wtag">Research automation. Built during my time at Freshpaint, still running.</p>
+            <div class="dbody">
+              <dl class="spec">
+                <dt>Problem</dt><dd>Pre-call research meant manually digging through a company's website to figure out who they already work with.</dd>
+                <dt>Decision</dt><dd>Built a crawler with three depth settings (homepage, 20-page scan, 50-page scan) that reads client mentions with confidence scoring and industry inference, instead of a flat page-by-page manual search.</dd>
+                <dt>Outcome</dt><dd>Saved the team roughly <b>5 hours a month</b> previously spent on manual research and prospecting, with results exportable straight to CSV.</dd>
+                <dt class="stackdt last">Stack</dt><dd class="stackdd last">React, Express, Postgres, Playwright, Claude API</dd>
+              </dl>
+              <figure class="shot">
+                <div class="plate">
+                  <div class="shot-pair">
+                    <img src="assets/ClienTell_homepage.png" alt="The ClienTell homepage, showing the URL field, smart scan toggle, and max pages control." loading="lazy" width="956" height="930">
+                    <img src="assets/ClienTell_Report.png" alt="A ClienTell crawl report listing companies found with relationship, confidence, and vertical columns." loading="lazy" width="944" height="929">
+                  </div>
+                </div>
+                <figcaption>clientell.fly.dev, input and results, captured live</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="proj-detail" role="tabpanel" id="lp-brief" aria-labelledby="w-brief" tabindex="0" hidden>
+            <div class="dhead">
+              <h3>Daily Brief Agent</h3>
+            </div>
+            <p class="wtag">Enterprise agent. Built during my time at Freshpaint, still running.</p>
+            <div class="dbody">
+              <dl class="spec">
+                <dt>Problem</dt><dd>Everyone started the day cold, with no context on the accounts and partners already sitting on the calendar.</dd>
+                <dt>Decision</dt><dd>Built on an enterprise agent platform rather than a one-off script, pulling from calendar, knowledge base, and CRM sources so the brief stays current as those systems change.</dd>
+                <dt>Outcome</dt><dd>A personalized morning brief landed for <b>every user on the team</b> before their first meeting, cutting manual pre-meeting prep.</dd>
+                <dt class="stackdt last">Stack</dt><dd class="stackdd last">Glean, Google Calendar, Slack, Notion, HubSpot, Gmail</dd>
+              </dl>
+              <figure class="shot">
+                <div class="plate"><img src="assets/daily-brief-agent.png" alt="Diagram of the Daily Brief Agent pulling from Google Calendar, Slack, Notion, HubSpot, Gmail, and the web, then synthesizing a single Slack message." loading="lazy" width="1536" height="1024"></div>
+                <figcaption>How the Daily Brief Agent works, source diagram</figcaption>
+              </figure>
+            </div>
+          </article>
+
         </div>
-        <dl class="spec">
-          <dt>Problem</dt><dd>Everyone started the day cold, with no context on the accounts and partners already sitting on the calendar.</dd>
-          <dt>Decision</dt><dd>Built on an enterprise agent platform rather than a one-off script, pulling from calendar, knowledge base, and CRM sources so the brief stays current as those systems change.</dd>
-          <dt>Outcome</dt><dd>A personalized morning brief landed for <b>every user on the team</b> before their first meeting, cutting manual pre-meeting prep.</dd>
-          <dt class="stackdt last">Stack</dt><dd class="stackdd last">Glean, Google Calendar, Slack, Notion, HubSpot, Gmail</dd>
-        </dl>
       </div>
-      <figure class="shot bleed-l">
-        <div class="plate"><img src="assets/daily-brief-agent.png" alt="Diagram of the Daily Brief Agent pulling from Google Calendar, Slack, Notion, HubSpot, Gmail, and the web, then synthesizing a single Slack message." loading="lazy" width="1536" height="1024"></div>
-        <figcaption>How the Daily Brief Agent works, source diagram</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -870,6 +936,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   var initial = new URLSearchParams(location.search).get('lens');
   if (initial && panels[initial]) show(initial);
+})();
+
+(function(){
+  var list = document.querySelector('.proj-index');
+  if (!list) return;
+  var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+  if (!tabs.length) return;
+  var panels = {};
+  tabs.forEach(function(t){ panels[t.dataset.project] = document.getElementById(t.getAttribute('aria-controls')); });
+
+  function show(slug, focus){
+    if (!panels[slug]) return;
+    tabs.forEach(function(t){
+      var on = t.dataset.project === slug;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var p = panels[t.dataset.project];
+      if (p) p.hidden = !on;
+      if (on && focus) t.focus();
+    });
+  }
+  function setUrl(slug){
+    try{
+      var url = new URL(location.href);
+      if (slug && slug !== 'output') url.searchParams.set('project', slug); else url.searchParams.delete('project');
+      history.replaceState(null, '', url);
+    }catch(e){}
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){ show(tab.dataset.project, false); setUrl(tab.dataset.project); });
+  });
+
+  list.addEventListener('keydown', function(e){
+    var i = tabs.map(function(t){ return t.getAttribute('aria-selected'); }).indexOf('true');
+    var n;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+    else if (e.key === 'Home') n = 0;
+    else if (e.key === 'End') n = tabs.length - 1;
+    else return;
+    e.preventDefault();
+    show(tabs[n].dataset.project, true);
+    setUrl(tabs[n].dataset.project);
+  });
+
+  // in-page links like #w-output (from the discipline-lens panels) select the project
+  var HASH = { 'w-output':'output', 'w-postgame':'postgame', 'w-clientell':'clientell', 'w-brief':'brief' };
+  function fromHash(){
+    var slug = HASH[location.hash.replace('#','')];
+    if (slug) show(slug, false);
+  }
+  window.addEventListener('hashchange', fromHash);
+
+  var initial = new URLSearchParams(location.search).get('project');
+  if (initial && panels[initial]) show(initial, false);
+  else fromHash();
 })();
 </script>
 </body>
